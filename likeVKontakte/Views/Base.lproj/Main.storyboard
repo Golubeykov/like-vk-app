@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-W9-DQQ">
-                                <rect key="frame" x="0.0" y="-9.3333333333333144" width="390" height="853.33333333333326"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-zw-7xP">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKQ-ND-SWw">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="835"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="495"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-5z-t1l">
                                                 <rect key="frame" x="97.666666666666686" y="70" width="195" height="93.666666666666686"/>
@@ -78,7 +78,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="20k-7I-Lbz" secondAttribute="bottom" constant="370" id="05z-wp-obQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="20k-7I-Lbz" secondAttribute="bottom" constant="30" id="05z-wp-obQ"/>
                                             <constraint firstItem="vnw-iI-jkN" firstAttribute="top" secondItem="woK-Ao-5JW" secondAttribute="bottom" constant="15" id="6tw-73-K6w"/>
                                             <constraint firstItem="qgN-5z-t1l" firstAttribute="top" secondItem="fKQ-ND-SWw" secondAttribute="top" constant="70" id="D16-Zr-n6V"/>
                                             <constraint firstItem="vnw-iI-jkN" firstAttribute="centerX" secondItem="fKQ-ND-SWw" secondAttribute="centerX" id="FjF-tl-WrW"/>
@@ -103,7 +103,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fKQ-ND-SWw" firstAttribute="leading" secondItem="x6k-gv-F1j" secondAttribute="leading" id="3zw-tz-nqP"/>
-                                    <constraint firstAttribute="bottom" secondItem="fKQ-ND-SWw" secondAttribute="bottom" id="6b4-QK-YrU"/>
                                     <constraint firstItem="fKQ-ND-SWw" firstAttribute="trailing" secondItem="x6k-gv-F1j" secondAttribute="trailing" id="ap9-TY-kA4"/>
                                     <constraint firstItem="fKQ-ND-SWw" firstAttribute="bottom" secondItem="x6k-gv-F1j" secondAttribute="bottom" id="fDw-CO-wwB"/>
                                     <constraint firstItem="fKQ-ND-SWw" firstAttribute="width" secondItem="vgG-KJ-CKr" secondAttribute="width" id="r7r-Du-qkX"/>
@@ -121,6 +120,7 @@
                             <constraint firstItem="5n5-zw-7xP" firstAttribute="leading" secondItem="G0V-W9-DQQ" secondAttribute="leading" id="FEe-KP-J29"/>
                             <constraint firstItem="5n5-zw-7xP" firstAttribute="trailing" secondItem="G0V-W9-DQQ" secondAttribute="trailing" id="Pkf-b0-tqB"/>
                             <constraint firstItem="5n5-zw-7xP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="T72-rT-IN5"/>
+                            <constraint firstItem="G0V-W9-DQQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Yp1-Xe-6a5"/>
                             <constraint firstItem="5n5-zw-7xP" firstAttribute="bottom" secondItem="G0V-W9-DQQ" secondAttribute="bottom" id="gFu-AW-SLW"/>
                             <constraint firstAttribute="bottom" secondItem="5n5-zw-7xP" secondAttribute="bottom" id="ix6-p8-Srd"/>
                         </constraints>
@@ -128,6 +128,7 @@
                     <connections>
                         <outlet property="loginInput" destination="woK-Ao-5JW" id="f1p-M4-zVu"/>
                         <outlet property="passwordInput" destination="ppP-OI-sir" id="Soy-Mg-Epo"/>
+                        <outlet property="scrollView" destination="5n5-zw-7xP" id="xiK-Hu-N6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

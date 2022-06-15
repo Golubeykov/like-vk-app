@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBackground" translatesAutoresizingMaskIntoConstraints="NO" id="HQg-NI-CBi">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catLogo" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-qL-VZ8">
                                 <rect key="frame" x="58.666666666666657" y="11" width="273" height="822.33333333333337"/>
                             </imageView>
@@ -27,12 +24,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mPO-qL-VZ8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5Dz-L6-0m4"/>
-                            <constraint firstItem="HQg-NI-CBi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9wA-gW-mWz"/>
                             <constraint firstItem="mPO-qL-VZ8" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="LE9-Le-G3m"/>
                             <constraint firstItem="mPO-qL-VZ8" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.97433" id="W1b-bI-Smx"/>
-                            <constraint firstAttribute="bottom" secondItem="HQg-NI-CBi" secondAttribute="bottom" id="YRV-mu-CCu"/>
-                            <constraint firstAttribute="trailing" secondItem="HQg-NI-CBi" secondAttribute="trailing" id="Zzf-ey-67f"/>
-                            <constraint firstItem="HQg-NI-CBi" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="bC5-v7-p3d"/>
                             <constraint firstItem="mPO-qL-VZ8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zy8-Qd-b1l"/>
                         </constraints>
                     </view>
@@ -44,7 +37,6 @@
     </scenes>
     <resources>
         <image name="catLogo" width="847.66668701171875" height="582"/>
-        <image name="spaceBackground" width="480" height="853.33331298828125"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

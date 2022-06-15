@@ -39,6 +39,7 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Получаем текст логина
         let login = loginInput.text!
@@ -60,7 +61,9 @@ class LoginFormController: UIViewController {
     self.scrollView?.contentInset = contentInsets
     scrollView?.scrollIndicatorInsets = contentInsets }
         //Когда клавиатура исчезает
-    @objc func keyboardWillBeHidden(notification: Notification) { // Устанавливаем отступ внизу UIScrollView, равный 0 let contentInsets = UIEdgeInsets.zero scrollView?.contentInset = contentInsets
+    @objc func keyboardWillBeHidden(notification: Notification) { // Устанавливаем отступ внизу UIScrollView, равный 0
+        let contentInsets = UIEdgeInsets.zero
+        scrollView?.contentInset = contentInsets
     }
 
 }
