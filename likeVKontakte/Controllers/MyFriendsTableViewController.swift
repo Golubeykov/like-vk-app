@@ -28,7 +28,10 @@ class MyFriendsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsListCell", for: indexPath) as! FriendsListTableViewCell
         let friend = testFriends[indexPath.row]
         cell.friendNameLabel.text = friend.name
-
+        
+        let imageName = "\(friend.name)"
+        cell.friendImage.image = UIImage(named: imageName)
+            
         return cell
     }
     

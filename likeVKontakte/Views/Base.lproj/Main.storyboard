@@ -393,9 +393,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gWq-Vs-Ycr">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWq-Vs-Ycr">
                                             <rect key="frame" x="290.33333333333331" y="3.6666666666666643" width="70" height="72.666666666666686"/>
                                             <color key="backgroundColor" name="AccentColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="ULI-M6-sip"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rgF-bq-cUm">
                                             <rect key="frame" x="365.33333333333331" y="33" width="19.666666666666686" height="14.666666666666664"/>
@@ -409,13 +412,12 @@
                                         <constraint firstItem="4UL-Sv-nT4" firstAttribute="centerY" secondItem="CLW-lV-eqW" secondAttribute="centerY" id="QNB-Hu-czt"/>
                                         <constraint firstItem="rgF-bq-cUm" firstAttribute="width" secondItem="gWq-Vs-Ycr" secondAttribute="height" multiplier="19:70" id="Uve-NI-jE6"/>
                                         <constraint firstItem="gWq-Vs-Ycr" firstAttribute="centerY" secondItem="CLW-lV-eqW" secondAttribute="centerY" id="p1v-QU-w8c"/>
+                                        <constraint firstItem="gWq-Vs-Ycr" firstAttribute="top" secondItem="CLW-lV-eqW" secondAttribute="topMargin" constant="-7.3333333333333357" id="unK-Q3-BAL"/>
                                         <constraint firstItem="4UL-Sv-nT4" firstAttribute="leading" secondItem="CLW-lV-eqW" secondAttribute="leading" constant="35" id="zVR-AW-030"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstItem="gWq-Vs-Ycr" firstAttribute="width" secondItem="cpA-Pq-wk3" secondAttribute="height" multiplier="7:8" id="ydc-df-hJZ"/>
-                                </constraints>
                                 <connections>
+                                    <outlet property="friendImage" destination="gWq-Vs-Ycr" id="ioQ-98-G9W"/>
                                     <outlet property="friendNameLabel" destination="4UL-Sv-nT4" id="jOq-tZ-wrU"/>
                                     <segue destination="BaD-oK-0G6" kind="show" id="J05-9C-CrS"/>
                                 </connections>

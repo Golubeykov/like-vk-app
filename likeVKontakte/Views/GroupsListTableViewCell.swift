@@ -11,15 +11,8 @@ class GroupsListTableViewCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var numberOfParticipants: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setup (with group: Group) {
+        groupName.text = group.name
+        numberOfParticipants.text = String(group.numberOfParticipants)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

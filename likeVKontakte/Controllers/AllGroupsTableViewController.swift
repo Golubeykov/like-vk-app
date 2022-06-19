@@ -26,8 +26,7 @@ class AllGroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath) as! GroupsListTableViewCell
         let group = allGroups[indexPath.row]
-        cell.groupName.text = group.name
-        cell.numberOfParticipants.text = String(group.numberOfParticipants)
+        cell.setup(with: group)
         
         return cell
     }
