@@ -10,7 +10,8 @@ import UIKit
 class LoginFormController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
-    // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
+    //MARK: - Подписываемся на уведомления
+    //Подписываемся на два уведомления: одно приходит при появлении клавиатуры
     NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
     // Второе — когда она пропадает
     NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -25,13 +26,13 @@ class LoginFormController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
 
     }
-    //Отписываемся от центра уведомлений
+    //MARK: - Отписываемся от центра уведомлений
     override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // Скрытие клавиатуры
+    // MARK: - Скрытие клавиатуры по тапу
     @objc func hideKeyboard() { self.scrollView?.endEditing(true)
     }
     
@@ -39,19 +40,21 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    
+    //MARK: - Нажатие кнопки логина
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Получаем текст логина
         let login = loginInput.text!
         // Получаем текст-пароль
         let password = passwordInput.text!
         // Проверяем, верны ли они
-        if login == "admin" && password == "123456" { print("успешная авторизация")
+        if login == "admin" && password == "admin" {
+            print("успешная авторизация")
+            performSegue(withIdentifier: "loginEntered", sender: nil)
         } else {
         print("неуспешная авторизация")
         }
     }
-    // Когда клавиатура появляется
+    //MARK: - Когда клавиатура появляется
     @objc func keyboardWasShown(notification: Notification) {
             // Получаем размер клавиатуры
     let info = notification.userInfo! as NSDictionary
