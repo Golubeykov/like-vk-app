@@ -14,7 +14,7 @@ class MyFriendsTableViewController: UITableViewController {
     Friend(name: "Misa", imageName: "Misa"),
     Friend(name: "Stepan", imageName: "Stepan")
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,5 +34,26 @@ class MyFriendsTableViewController: UITableViewController {
             
         return cell
     }
+    //MARK: - Переход на страницу друга
+//    @IBAction func friendDetail(segue: UIStoryboardSegue) {
+//        guard let friendVC = segue.destination as? FriendViewController, let friendIndex = self.tableView.indexPathForSelectedRow else { return }
+//        friendVC.friendImage.image = self.tableView.cellForRow(at: friendIndex)?.imageView?.image ?? UIImage(named: "Stepan")
+//    }
     
+    // устанавливаем действие при выделении ячейки
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    // выполняем переход. в качестве sender-аргумента советую отправить IndexPath ячейки, откуда отправляете
+//        //performSegue(withIdentifier: "friendDetail", sender: indexPath)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard segue.identifier == "friendDetail", let friendVC = segue.destination as? FriendViewController, let friendIndex = self.tableView.indexPathForSelectedRow else { return }
+//        friendVC.friendImage = self.tableView.cellForRow(at: friendIndex)?. ?? UIImage(named: "Stepan")
+//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           let vc = storyboard?.instantiateViewController(withIdentifier: "FriendViewController") as? FriendViewController
+           let friend = testFriends[indexPath.row].name
+           vc?.friendImage = UIImage(named: friend)!
+           navigationController?.pushViewController(vc!, animated: true)
+    }
 }

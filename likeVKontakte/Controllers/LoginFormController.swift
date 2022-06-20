@@ -51,7 +51,10 @@ class LoginFormController: UIViewController {
             print("успешная авторизация")
             performSegue(withIdentifier: "loginEntered", sender: nil)
         } else {
-        print("неуспешная авторизация")
+            let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
     }
     //MARK: - Когда клавиатура появляется
