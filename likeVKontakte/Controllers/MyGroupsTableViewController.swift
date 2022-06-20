@@ -10,9 +10,13 @@ import UIKit
 class MyGroupsTableViewController: UITableViewController {
 
     var myGroups: [Group] = []
+    let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //networkService.loadWeatherData()
+        networkService.loadWeatherWithAlamo()
     }
 //MARK: - Постоение ячеек
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

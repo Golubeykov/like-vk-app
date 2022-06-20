@@ -17,6 +17,7 @@
 		3A2CB81C285F46D90017EF54 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */; };
 		3A2CB81E285F47000017EF54 /* GroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81D285F47000017EF54 /* GroupsListTableViewCell.swift */; };
 		3A2CB820286087B30017EF54 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81F286087B30017EF54 /* FriendViewController.swift */; };
+		3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB8212860AC5B0017EF54 /* NetworkService.swift */; };
 		3A7D7EA128536AE8000A67E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA028536AE8000A67E6 /* AppDelegate.swift */; };
 		3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA228536AE8000A67E6 /* SceneDelegate.swift */; };
 		3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA628536AE8000A67E6 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		3A2CB81D285F47000017EF54 /* GroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListTableViewCell.swift; sourceTree = "<group>"; };
 		3A2CB81F286087B30017EF54 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		3A2CB8212860AC5B0017EF54 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3A7D7E9D28536AE8000A67E6 /* likeVKontakte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = likeVKontakte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7D7EA028536AE8000A67E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A7D7EA228536AE8000A67E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				3A2CB811285F36250017EF54 /* Group.swift */,
 				3A2CB817285F3AC80017EF54 /* Friend.swift */,
+				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				3A2CB81E285F47000017EF54 /* GroupsListTableViewCell.swift in Sources */,
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
 				3A2CB820286087B30017EF54 /* FriendViewController.swift in Sources */,
+				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
 				3A2CB812285F36250017EF54 /* Group.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
