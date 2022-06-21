@@ -6,13 +6,11 @@
 //
 
 import UIKit
-// 1 47
+
 class AllGroupsTableViewController: UITableViewController {
-    var allGroups: [Group] = [
-    Group(name: "Kus", logoName: "Kus", numberOfParticipants: 4_142),
-    Group(name: "Tsarap", logoName: "Tsatap", numberOfParticipants: 1_630),
-    Group(name: "Meow", logoName: "Meow", numberOfParticipants: 743_882)
-    ]
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var allGroups: [Group] = Group.testGroups
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +27,22 @@ class AllGroupsTableViewController: UITableViewController {
         cell.setup(with: group)
         
         return cell
+    }
+}
+
+//MARK: - Реализация поиска
+
+extension AllGroupsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        allGroups = Group.testGroups
+        guard !searchText.isEmpty else {
+            allGroups = Group.testGroups
+            tableView.reloadData()
+            return
+        }
+        allGroups = allGroups.filter { (group) -> Bool in
+            group.name.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
     }
 }
