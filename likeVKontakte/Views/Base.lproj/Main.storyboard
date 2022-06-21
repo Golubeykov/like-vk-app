@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C5V-bb-s3o">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -465,7 +465,44 @@
             </objects>
             <point key="canvasLocation" x="2378" y="-290"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="0Es-Fs-DZS">
+            <objects>
+                <viewController id="C5V-bb-s3o" customClass="VKLoginViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="474-9J-NBd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riV-Vf-ATJ">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="riV-Vf-ATJ" secondAttribute="trailing" id="NyI-4p-3E1"/>
+                            <constraint firstItem="riV-Vf-ATJ" firstAttribute="leading" secondItem="474-9J-NBd" secondAttribute="leading" id="bhy-64-Rkl"/>
+                            <constraint firstItem="riV-Vf-ATJ" firstAttribute="top" secondItem="474-9J-NBd" secondAttribute="top" id="cby-S0-wqd"/>
+                            <constraint firstAttribute="bottom" secondItem="riV-Vf-ATJ" secondAttribute="bottom" id="fRT-zH-nYQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="riV-Vf-ATJ" id="Agh-XP-zj7"/>
+                        <segue destination="cuY-al-ydV" kind="presentation" identifier="VKloginsuccess" modalPresentationStyle="fullScreen" id="OFD-bs-FZm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uce-4h-lWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582" y="-1108"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OFD-bs-FZm"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="catLogo" width="847.66668701171875" height="582"/>

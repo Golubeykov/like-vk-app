@@ -23,6 +23,7 @@
 		3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA628536AE8000A67E6 /* Main.storyboard */; };
 		3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA928536AEA000A67E6 /* Assets.xcassets */; };
 		3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */; };
+		3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3A7D7EA928536AEA000A67E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A7D7EAC28536AEA000A67E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A7D7EAE28536AEA000A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,12 +127,29 @@
 			isa = PBXGroup;
 			children = (
 				3A1F785728536B690005CA9A /* LoginFormController.swift */,
-				3A2CB813285F381E0017EF54 /* MyFriendsTableViewController.swift */,
-				3A2CB815285F383C0017EF54 /* MyGroupsTableViewController.swift */,
-				3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */,
-				3A2CB81F286087B30017EF54 /* FriendViewController.swift */,
+				3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */,
+				3AC5FF5C2861BC8A00FB668F /* First tab (friends) */,
+				3AC5FF5D2861BC9500FB668F /* Second tab (groups) */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3AC5FF5C2861BC8A00FB668F /* First tab (friends) */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CB813285F381E0017EF54 /* MyFriendsTableViewController.swift */,
+				3A2CB81F286087B30017EF54 /* FriendViewController.swift */,
+			);
+			path = "First tab (friends)";
+			sourceTree = "<group>";
+		};
+		3AC5FF5D2861BC9500FB668F /* Second tab (groups) */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CB815285F383C0017EF54 /* MyGroupsTableViewController.swift */,
+				3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */,
+			);
+			path = "Second tab (groups)";
 			sourceTree = "<group>";
 		};
 		4079ECF346CB968A89654164 /* Pods */ = {
@@ -268,6 +287,7 @@
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
 				3A2CB820286087B30017EF54 /* FriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
+				3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */,
 				3A2CB812285F36250017EF54 /* Group.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
