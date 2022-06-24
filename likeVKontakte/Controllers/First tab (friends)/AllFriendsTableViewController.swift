@@ -10,9 +10,9 @@ import UIKit
 class AllFriendsTableViewController: UITableViewController {
     
     private let testFriends: [Friend] = [
-    Friend(name: "Лёлик", imageName: "Lelik"),
-    Friend(name: "Миса", imageName: "Misa"),
-    Friend(name: "Степан", imageName: "Stepan")
+    Friend(name: "Лёлик", imageName: "Lelik", photosLibrary: ["meow", "kus", "catLogo","fish"]),
+    Friend(name: "Миса", imageName: "Misa", photosLibrary: ["kus", "tsarap", "fish","Stepan"]),
+    Friend(name: "Степан", imageName: "Stepan", photosLibrary: ["test", "kus", "tsarap","meow"])
     ]
 
     override func viewDidLoad() {
@@ -36,10 +36,10 @@ class AllFriendsTableViewController: UITableViewController {
     }
     //MARK: - Переход на страницу друга
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//           let vc = storyboard?.instantiateViewController(withIdentifier: "FriendViewController") as? FriendViewController
-//           let friend = testFriends[indexPath.row].name
-//           vc?.friendImage = UIImage(named: friend)!
-//           navigationController?.pushViewController(vc!, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MyFriendViewController") as? MyFriendViewController else {return}
+           let friend = testFriends[indexPath.row]
+            vc.friend = friend
+           navigationController?.pushViewController(vc, animated: true)
+    }
 }
