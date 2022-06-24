@@ -10,13 +10,9 @@
 		29521E3557646C1042FCD49D /* Pods_likeVKontakte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */; };
 		3A1F785828536B690005CA9A /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F785728536B690005CA9A /* LoginFormController.swift */; };
 		3A2CB812285F36250017EF54 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB811285F36250017EF54 /* Group.swift */; };
-		3A2CB814285F381E0017EF54 /* MyFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB813285F381E0017EF54 /* MyFriendsTableViewController.swift */; };
-		3A2CB816285F383C0017EF54 /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB815285F383C0017EF54 /* MyGroupsTableViewController.swift */; };
+		3A2CB814285F381E0017EF54 /* AllFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB813285F381E0017EF54 /* AllFriendsTableViewController.swift */; };
 		3A2CB818285F3AC80017EF54 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB817285F3AC80017EF54 /* Friend.swift */; };
 		3A2CB81A285F3EE40017EF54 /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB819285F3EE40017EF54 /* FriendsListTableViewCell.swift */; };
-		3A2CB81C285F46D90017EF54 /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */; };
-		3A2CB81E285F47000017EF54 /* GroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81D285F47000017EF54 /* GroupsListTableViewCell.swift */; };
-		3A2CB820286087B30017EF54 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB81F286087B30017EF54 /* FriendViewController.swift */; };
 		3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2CB8212860AC5B0017EF54 /* NetworkService.swift */; };
 		3A7D7EA128536AE8000A67E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA028536AE8000A67E6 /* AppDelegate.swift */; };
 		3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA228536AE8000A67E6 /* SceneDelegate.swift */; };
@@ -24,6 +20,9 @@
 		3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA928536AEA000A67E6 /* Assets.xcassets */; };
 		3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */; };
 		3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */; };
+		3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */; };
+		3AC5FF622865B0AF00FB668F /* GroupListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */; };
+		3AC5FF642865B4EA00FB668F /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF632865B4EA00FB668F /* MyGroupsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +30,9 @@
 		3188D866094660D2E9A8969A /* Pods-likeVKontakte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-likeVKontakte.release.xcconfig"; path = "Target Support Files/Pods-likeVKontakte/Pods-likeVKontakte.release.xcconfig"; sourceTree = "<group>"; };
 		3A1F785728536B690005CA9A /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		3A2CB811285F36250017EF54 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		3A2CB813285F381E0017EF54 /* MyFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewController.swift; sourceTree = "<group>"; };
-		3A2CB815285F383C0017EF54 /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableViewController.swift; sourceTree = "<group>"; };
+		3A2CB813285F381E0017EF54 /* AllFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFriendsTableViewController.swift; sourceTree = "<group>"; };
 		3A2CB817285F3AC80017EF54 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		3A2CB819285F3EE40017EF54 /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
-		3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
-		3A2CB81D285F47000017EF54 /* GroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListTableViewCell.swift; sourceTree = "<group>"; };
-		3A2CB81F286087B30017EF54 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		3A2CB8212860AC5B0017EF54 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3A7D7E9D28536AE8000A67E6 /* likeVKontakte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = likeVKontakte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7D7EA028536AE8000A67E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +42,9 @@
 		3A7D7EAC28536AEA000A67E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A7D7EAE28536AEA000A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
+		3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListTableViewCell.swift; sourceTree = "<group>"; };
+		3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListTableViewCell.xib; sourceTree = "<group>"; };
+		3AC5FF632865B4EA00FB668F /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +96,7 @@
 				3AB84D4B285A569E006D1CDF /* Views */,
 				3A7D7EA928536AEA000A67E6 /* Assets.xcassets */,
 				3A7D7EAE28536AEA000A67E6 /* Info.plist */,
+				3AC5FF5E2865AC5100FB668F /* Temp deprecated */,
 			);
 			path = likeVKontakte;
 			sourceTree = "<group>";
@@ -107,7 +106,6 @@
 			children = (
 				3A2CB811285F36250017EF54 /* Group.swift */,
 				3A2CB817285F3AC80017EF54 /* Friend.swift */,
-				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,7 +116,8 @@
 				3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */,
 				3A7D7EA628536AE8000A67E6 /* Main.storyboard */,
 				3A2CB819285F3EE40017EF54 /* FriendsListTableViewCell.swift */,
-				3A2CB81D285F47000017EF54 /* GroupsListTableViewCell.swift */,
+				3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */,
+				3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				3A1F785728536B690005CA9A /* LoginFormController.swift */,
-				3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */,
 				3AC5FF5C2861BC8A00FB668F /* First tab (friends) */,
 				3AC5FF5D2861BC9500FB668F /* Second tab (groups) */,
 			);
@@ -137,8 +135,7 @@
 		3AC5FF5C2861BC8A00FB668F /* First tab (friends) */ = {
 			isa = PBXGroup;
 			children = (
-				3A2CB813285F381E0017EF54 /* MyFriendsTableViewController.swift */,
-				3A2CB81F286087B30017EF54 /* FriendViewController.swift */,
+				3A2CB813285F381E0017EF54 /* AllFriendsTableViewController.swift */,
 			);
 			path = "First tab (friends)";
 			sourceTree = "<group>";
@@ -146,10 +143,18 @@
 		3AC5FF5D2861BC9500FB668F /* Second tab (groups) */ = {
 			isa = PBXGroup;
 			children = (
-				3A2CB815285F383C0017EF54 /* MyGroupsTableViewController.swift */,
-				3A2CB81B285F46D90017EF54 /* AllGroupsTableViewController.swift */,
+				3AC5FF632865B4EA00FB668F /* MyGroupsViewController.swift */,
 			);
 			path = "Second tab (groups)";
+			sourceTree = "<group>";
+		};
+		3AC5FF5E2865AC5100FB668F /* Temp deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
+				3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */,
+			);
+			path = "Temp deprecated";
 			sourceTree = "<group>";
 		};
 		4079ECF346CB968A89654164 /* Pods */ = {
@@ -224,6 +229,7 @@
 				3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */,
 				3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */,
 				3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */,
+				3AC5FF622865B0AF00FB668F /* GroupListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,18 +282,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2CB814285F381E0017EF54 /* MyFriendsTableViewController.swift in Sources */,
+				3A2CB814285F381E0017EF54 /* AllFriendsTableViewController.swift in Sources */,
+				3AC5FF642865B4EA00FB668F /* MyGroupsViewController.swift in Sources */,
 				3A2CB818285F3AC80017EF54 /* Friend.swift in Sources */,
-				3A2CB816285F383C0017EF54 /* MyGroupsTableViewController.swift in Sources */,
 				3A2CB81A285F3EE40017EF54 /* FriendsListTableViewCell.swift in Sources */,
 				3A1F785828536B690005CA9A /* LoginFormController.swift in Sources */,
-				3A2CB81C285F46D90017EF54 /* AllGroupsTableViewController.swift in Sources */,
 				3A7D7EA128536AE8000A67E6 /* AppDelegate.swift in Sources */,
-				3A2CB81E285F47000017EF54 /* GroupsListTableViewCell.swift in Sources */,
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
-				3A2CB820286087B30017EF54 /* FriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
 				3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */,
+				3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */,
 				3A2CB812285F36250017EF54 /* Group.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

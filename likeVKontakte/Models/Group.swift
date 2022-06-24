@@ -13,8 +13,9 @@ struct Group: Equatable {
     var numberOfParticipants: Int
     
     static let testGroups: [Group] = [
-        Group(name: "Kus", logoName: "Kus", numberOfParticipants: 4_142),
-        Group(name: "Tsarap", logoName: "Tsatap", numberOfParticipants: 1_630),
-        Group(name: "Meow", logoName: "Meow", numberOfParticipants: 743_882)
+        Group(name:  "Кусь", logoName: "Kus", numberOfParticipants: 4_142),
+        Group(name: "Царапки", logoName: "Tsarap", numberOfParticipants: 1_630),
+        Group(name: "Милашки", logoName: "Meow", numberOfParticipants: 73_882),
+        Group(name: "Таскаем рыбу", logoName: "Fish", numberOfParticipants: 4_321)
         ]
 }
