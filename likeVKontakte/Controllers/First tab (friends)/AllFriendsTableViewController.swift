@@ -10,9 +10,9 @@ import UIKit
 class AllFriendsTableViewController: UITableViewController {
     
     private let testFriends: [Friend] = [
-    Friend(name: "Lelik", imageName: "Lelik"),
-    Friend(name: "Misa", imageName: "Misa"),
-    Friend(name: "Stepan", imageName: "Stepan")
+    Friend(name: "Лёлик", imageName: "Lelik"),
+    Friend(name: "Миса", imageName: "Misa"),
+    Friend(name: "Степан", imageName: "Stepan")
     ]
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class AllFriendsTableViewController: UITableViewController {
         let friend = testFriends[indexPath.row]
         cell.friendNameLabel.text = friend.name
         
-        let imageName = "\(friend.name)"
+        let imageName = "\(friend.imageName)"
         cell.friendImage.image = UIImage(named: imageName)
             
         return cell

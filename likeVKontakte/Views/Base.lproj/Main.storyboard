@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cuY-al-ydV">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -137,13 +137,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664.61538461538464" y="108.76777251184834"/>
+            <point key="canvasLocation" x="658" y="92"/>
         </scene>
-        <!--Groups-->
+        <!--Группы-->
         <scene sceneID="i2a-s4-HkF">
             <objects>
                 <navigationController id="gzn-vX-ZWl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" image="person.3" catalog="system" selectedImage="person.3" id="A0H-9I-0TI">
+                    <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" selectedImage="person.3" id="A0H-9I-0TI">
                         <color key="badgeColor" systemColor="systemBlueColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R2j-Q1-TV9">
@@ -158,7 +158,7 @@
             </objects>
             <point key="canvasLocation" x="2438" y="574"/>
         </scene>
-        <!--My Groups View Controller-->
+        <!--Мои группы-->
         <scene sceneID="sgW-kE-N9M">
             <objects>
                 <viewController id="GDT-zk-yJv" customClass="MyGroupsViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
@@ -180,9 +180,22 @@
                             <constraint firstItem="PaB-CK-K0e" firstAttribute="top" secondItem="L9y-dC-6nE" secondAttribute="top" id="dCU-qO-dQo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HSc-SH-wR3"/>
+                    <navigationItem key="navigationItem" title="Мои группы" id="HSc-SH-wR3">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="GfT-o9-CZ8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Rjg-GZ-ffY">
+                                <rect key="frame" x="288" y="5" width="86" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" imagePlacement="trailing" imagePadding="0.0"/>
+                                <connections>
+                                    <action selector="addGroups:" destination="GDT-zk-yJv" eventType="touchUpInside" id="fud-vQ-iwC"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myGroupsTableView" destination="PaB-CK-K0e" id="XSy-FV-x7g"/>
+                        <segue destination="z0p-Xi-Fol" kind="show" identifier="fromMyToAllGroups" id="P3X-sX-anO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ro4-S6-2jQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -209,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="1555" y="110"/>
         </scene>
-        <!--My friends-->
+        <!--Мои друзья-->
         <scene sceneID="366-5O-7RR">
             <objects>
                 <tableViewController id="bRa-5M-Ziw" customClass="AllFriendsTableViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,17 +279,17 @@
                             <outlet property="delegate" destination="bRa-5M-Ziw" id="hK1-sG-zSW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My friends" id="Thj-qU-tPB"/>
+                    <navigationItem key="navigationItem" title="Мои друзья" id="Thj-qU-tPB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNB-79-qWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3221.5384615384614" y="-290.04739336492889"/>
         </scene>
-        <!--Friends-->
+        <!--Друзья-->
         <scene sceneID="EXB-CS-9BO">
             <objects>
                 <navigationController id="QuV-x2-GdT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="face.smiling" catalog="system" selectedImage="face.smiling" id="0LR-D3-jIu">
+                    <tabBarItem key="tabBarItem" title="Друзья" image="face.smiling" catalog="system" selectedImage="face.smiling" id="0LR-D3-jIu">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GDf-B5-YMx">
@@ -291,12 +304,44 @@
             </objects>
             <point key="canvasLocation" x="2378" y="-290"/>
         </scene>
+        <!--Все группы-->
+        <scene sceneID="hkX-5D-L35">
+            <objects>
+                <viewController id="z0p-Xi-Fol" customClass="AllGroupsViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a8K-Bk-3bq">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-m1-KVc">
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DMR-Uc-Irq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DMR-Uc-Irq" firstAttribute="bottom" secondItem="LWa-m1-KVc" secondAttribute="bottom" id="29t-A9-nci"/>
+                            <constraint firstItem="LWa-m1-KVc" firstAttribute="top" secondItem="DMR-Uc-Irq" secondAttribute="top" id="6t7-5a-iCh"/>
+                            <constraint firstItem="LWa-m1-KVc" firstAttribute="leading" secondItem="DMR-Uc-Irq" secondAttribute="leading" id="FeR-SX-LQE"/>
+                            <constraint firstItem="DMR-Uc-Irq" firstAttribute="trailing" secondItem="LWa-m1-KVc" secondAttribute="trailing" id="Sbb-6H-3Gw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Все группы" id="vFE-JF-UG4"/>
+                    <connections>
+                        <outlet property="allGroupsTableView" destination="LWa-m1-KVc" id="loq-pD-3hm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jKj-d2-Iqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3980" y="574"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="catLogo" width="847.66668701171875" height="582"/>
         <image name="face.smiling" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spaceBackground" width="480" height="853.33331298828125"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

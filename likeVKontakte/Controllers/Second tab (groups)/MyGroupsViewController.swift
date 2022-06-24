@@ -10,9 +10,11 @@ import UIKit
 class MyGroupsViewController: UIViewController {
 
     @IBOutlet weak var myGroupsTableView: UITableView!
-    var myGroups = Group.testGroups
+
+    var myGroups = MyGroupsStorage.shared.getMyGroups()
     // просто сохраняем идшник
     let reuseIdGroupList = GroupListTableViewCell.reuseIdGroupListTableViewCell
+    let fromMyToAllGroups = "fromMyToAllGroups"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,14 @@ class MyGroupsViewController: UIViewController {
         myGroupsTableView.delegate = self
         //Регистрируем ячейку из xib-файла
         myGroupsTableView.register(UINib(nibName: reuseIdGroupList, bundle: nil), forCellReuseIdentifier: reuseIdGroupList)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        myGroups = MyGroupsStorage.shared.getMyGroups()
+        self.myGroupsTableView.reloadData()
+    }
+    @IBAction func addGroups(_ sender: Any) {
+        performSegue(withIdentifier: "fromMyToAllGroups", sender: nil)
     }
 }
 //Data source
@@ -34,6 +44,11 @@ extension MyGroupsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdGroupList, for: indexPath) as? GroupListTableViewCell else { return UITableViewCell() }
         cell.configure(group: myGroups[indexPath.row])
         return cell
+    }
+    //Удаление ячейки
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        myGroups.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .top)
     }
 }
 //Delegate

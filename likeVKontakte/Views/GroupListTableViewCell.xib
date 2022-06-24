@@ -56,6 +56,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" button="YES"/>
+            </accessibility>
             <connections>
                 <outlet property="groupLogo" destination="Den-ys-OqH" id="pkc-Bu-356"/>
                 <outlet property="groupName" destination="Ywc-8o-xfT" id="P5J-y4-OEj"/>

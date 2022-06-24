@@ -13,22 +13,17 @@ class GroupListTableViewCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var numberOfUsers: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func configure(group: Group) {
         if let image = UIImage(named: group.logoName.lowercased()) {
             self.groupLogo.image = image
         }
         self.groupName.text = group.name
         self.numberOfUsers.text = String(group.numberOfParticipants)
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        groupLogo.image = nil
+        groupName.text = nil
+        numberOfUsers.text = nil
     }
 }
