@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cuY-al-ydV">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -401,27 +401,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-m1-KVc">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="139" width="390" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dnt-TA-202">
+                                <rect key="frame" x="0.0" y="88" width="390" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DMR-Uc-Irq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DMR-Uc-Irq" firstAttribute="bottom" secondItem="LWa-m1-KVc" secondAttribute="bottom" id="29t-A9-nci"/>
-                            <constraint firstItem="LWa-m1-KVc" firstAttribute="top" secondItem="DMR-Uc-Irq" secondAttribute="top" id="6t7-5a-iCh"/>
+                            <constraint firstItem="dnt-TA-202" firstAttribute="leading" secondItem="DMR-Uc-Irq" secondAttribute="leading" id="2ur-Td-ndN"/>
+                            <constraint firstItem="LWa-m1-KVc" firstAttribute="top" secondItem="dnt-TA-202" secondAttribute="bottom" id="6t7-5a-iCh"/>
                             <constraint firstItem="LWa-m1-KVc" firstAttribute="leading" secondItem="DMR-Uc-Irq" secondAttribute="leading" id="FeR-SX-LQE"/>
                             <constraint firstItem="DMR-Uc-Irq" firstAttribute="trailing" secondItem="LWa-m1-KVc" secondAttribute="trailing" id="Sbb-6H-3Gw"/>
+                            <constraint firstItem="dnt-TA-202" firstAttribute="top" secondItem="DMR-Uc-Irq" secondAttribute="top" id="UFt-Bj-hwX"/>
+                            <constraint firstItem="dnt-TA-202" firstAttribute="trailing" secondItem="DMR-Uc-Irq" secondAttribute="trailing" id="mYk-bN-AC6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Все группы" id="vFE-JF-UG4"/>
                     <connections>
                         <outlet property="allGroupsTableView" destination="LWa-m1-KVc" id="loq-pD-3hm"/>
+                        <outlet property="searchBar" destination="dnt-TA-202" id="9LU-8b-J8o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKj-d2-Iqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3980" y="574"/>
+            <point key="canvasLocation" x="3980" y="573.69668246445497"/>
         </scene>
     </scenes>
     <resources>

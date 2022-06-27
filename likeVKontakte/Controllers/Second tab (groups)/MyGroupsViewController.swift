@@ -58,8 +58,28 @@ extension MyGroupsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected \(myGroups[indexPath.row].name) group")
+        print("selected \(myGroups[indexPath.row].logoName) group")
+        tableView.reloadData()
+        let logoView = UIView(frame: self.view.frame)
+        logoView.tag = 100
+        let imageView = UIImageView(frame: logoView.frame)
+        imageView.image = UIImage(named: myGroups[indexPath.row].logoName.lowercased())
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(logoView)
+        logoView.addSubview(imageView)
+        
+        let aSelector : Selector = #selector(MyGroupsViewController.removeSubview)
+        let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
+        logoView.addGestureRecognizer(tapGesture)
     }
     
+    @objc func removeSubview(){
+        print("Start remove subview")
+        if let viewWithTag = self.view.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }else{
+            print("No!")
+        }
+    }
 }
 
