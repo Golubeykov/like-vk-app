@@ -59,7 +59,7 @@ extension MyGroupsViewController: UITableViewDelegate {
     // Зум фото при нажатии на него
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected \(myGroups[indexPath.row].logoName) group")
-        tableView.reloadData()
+        //tableView.reloadData()
         let logoView = UIView(frame: self.view.frame)
         logoView.tag = 100
         let imageView = UIImageView(frame: logoView.frame)
@@ -68,7 +68,7 @@ extension MyGroupsViewController: UITableViewDelegate {
         self.view.addSubview(logoView)
         logoView.addSubview(imageView)
         
-        let aSelector : Selector = #selector(MyGroupsViewController.removeSubview)
+        let aSelector: Selector = #selector(MyGroupsViewController.removeSubview)
         let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
         logoView.addGestureRecognizer(tapGesture)
     }

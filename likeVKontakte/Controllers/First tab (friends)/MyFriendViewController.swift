@@ -10,6 +10,7 @@ import UIKit
 class MyFriendViewController: UIViewController {
 
     @IBOutlet weak var friendPhotos: UICollectionView!
+    @IBOutlet weak var friendAvatarView: UIView!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendName: UILabel!
     
@@ -19,7 +20,9 @@ class MyFriendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
+        friendAvatar.layer.masksToBounds = true
+        //friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
+        friendAvatar.applyshadowWithCorner(containerView: friendAvatarView, cornerRadious: friendAvatar.bounds.height/2)
         friendName.text = friend.name
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
             friendAvatar.image = friendAvatarLoaded
@@ -51,5 +54,19 @@ extension MyFriendViewController: UICollectionViewDelegate {
 extension MyFriendViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width / 2 - 10, height: collectionView.bounds.width / 2 - 10)
+    }
+}
+
+extension UIImageView {
+    func applyshadowWithCorner(containerView : UIView, cornerRadious : CGFloat){
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 1
+        containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        containerView.layer.shadowRadius = 3
+        containerView.layer.cornerRadius = cornerRadious
+        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadious
     }
 }

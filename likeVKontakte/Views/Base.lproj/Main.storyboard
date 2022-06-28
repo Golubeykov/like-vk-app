@@ -291,21 +291,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-Or-RBJ">
-                                <rect key="frame" x="78" y="123" width="234" height="234"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Nfc-Or-RBJ" secondAttribute="height" multiplier="1:1" id="sPc-ha-vUU"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-Bc-WZT">
                                 <rect key="frame" x="20" y="377" width="350" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фотографии" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izO-Pt-Zb0">
-                                <rect key="frame" x="30" y="454" width="351" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -330,7 +318,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awT-7n-GC6" customClass="LikeButtonView" customModule="likeVKontakte" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="80" width="120" height="20"/>
+                                                    <rect key="frame" x="0.0" y="80" width="12" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -350,28 +338,51 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фотографии" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izO-Pt-Zb0">
+                                <rect key="frame" x="30" y="454" width="351" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yG4-Rs-q3g">
+                                <rect key="frame" x="78" y="123" width="234" height="234"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-Or-RBJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="234"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Nfc-Or-RBJ" secondAttribute="trailing" id="AKw-e7-rIf"/>
+                                    <constraint firstItem="Nfc-Or-RBJ" firstAttribute="top" secondItem="yG4-Rs-q3g" secondAttribute="top" id="OEf-tR-rX8"/>
+                                    <constraint firstItem="Nfc-Or-RBJ" firstAttribute="leading" secondItem="yG4-Rs-q3g" secondAttribute="leading" id="aMm-eC-RcP"/>
+                                    <constraint firstAttribute="width" secondItem="yG4-Rs-q3g" secondAttribute="height" multiplier="1:1" id="gg2-Ud-1Ed"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nfc-Or-RBJ" secondAttribute="bottom" id="qAd-gk-b58"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ATQ-fJ-z3u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nQl-Bc-WZT" firstAttribute="top" secondItem="Nfc-Or-RBJ" secondAttribute="bottom" constant="20" id="1nw-uy-Q0a"/>
                             <constraint firstItem="Vca-SE-aG9" firstAttribute="top" secondItem="izO-Pt-Zb0" secondAttribute="bottom" constant="20" id="5nW-vI-sDR"/>
                             <constraint firstItem="ATQ-fJ-z3u" firstAttribute="trailing" secondItem="izO-Pt-Zb0" secondAttribute="trailing" constant="9" id="ALB-Hx-eId"/>
-                            <constraint firstItem="Nfc-Or-RBJ" firstAttribute="centerX" secondItem="713-aG-s9R" secondAttribute="centerX" id="Bgi-MZ-820"/>
                             <constraint firstItem="ATQ-fJ-z3u" firstAttribute="trailing" secondItem="Vca-SE-aG9" secondAttribute="trailing" id="Bqt-CX-fbg"/>
+                            <constraint firstItem="yG4-Rs-q3g" firstAttribute="width" secondItem="713-aG-s9R" secondAttribute="width" multiplier="0.6" id="Btz-cR-vzG"/>
                             <constraint firstItem="izO-Pt-Zb0" firstAttribute="top" secondItem="nQl-Bc-WZT" secondAttribute="bottom" constant="50" id="Cj6-rB-X8w"/>
+                            <constraint firstItem="yG4-Rs-q3g" firstAttribute="top" secondItem="ATQ-fJ-z3u" secondAttribute="top" constant="35" id="KiV-9Q-S06"/>
                             <constraint firstItem="ATQ-fJ-z3u" firstAttribute="bottom" secondItem="Vca-SE-aG9" secondAttribute="bottom" id="L02-et-CUv"/>
-                            <constraint firstItem="Nfc-Or-RBJ" firstAttribute="width" secondItem="713-aG-s9R" secondAttribute="width" multiplier="0.6" id="Pao-bw-fx0"/>
+                            <constraint firstItem="yG4-Rs-q3g" firstAttribute="centerX" secondItem="713-aG-s9R" secondAttribute="centerX" id="dIY-ZI-0FV"/>
                             <constraint firstItem="nQl-Bc-WZT" firstAttribute="leading" secondItem="ATQ-fJ-z3u" secondAttribute="leading" constant="20" id="lra-KW-8o2"/>
-                            <constraint firstItem="Nfc-Or-RBJ" firstAttribute="top" secondItem="ATQ-fJ-z3u" secondAttribute="top" constant="35" id="nP5-lG-H5g"/>
                             <constraint firstItem="Vca-SE-aG9" firstAttribute="leading" secondItem="ATQ-fJ-z3u" secondAttribute="leading" id="oNd-0I-nMX"/>
                             <constraint firstItem="nQl-Bc-WZT" firstAttribute="centerX" secondItem="713-aG-s9R" secondAttribute="centerX" id="qa1-jP-rRH"/>
                             <constraint firstItem="izO-Pt-Zb0" firstAttribute="leading" secondItem="ATQ-fJ-z3u" secondAttribute="leading" constant="30" id="xGs-G0-W2r"/>
-                            <constraint firstItem="nQl-Bc-WZT" firstAttribute="top" secondItem="Nfc-Or-RBJ" secondAttribute="bottom" constant="20" id="yuQ-Sj-9jL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tyf-Yy-Hzn"/>
                     <connections>
                         <outlet property="friendAvatar" destination="Nfc-Or-RBJ" id="fc4-gk-jLo"/>
+                        <outlet property="friendAvatarView" destination="yG4-Rs-q3g" id="3jp-yN-Wvw"/>
                         <outlet property="friendName" destination="nQl-Bc-WZT" id="k1Q-5K-8pO"/>
                         <outlet property="friendPhotos" destination="Vca-SE-aG9" id="GL9-H4-ATW"/>
                     </connections>
