@@ -291,7 +291,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-Or-RBJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nfc-Or-RBJ">
                                 <rect key="frame" x="78" y="123" width="234" height="234"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nfc-Or-RBJ" secondAttribute="height" multiplier="1:1" id="sPc-ha-vUU"/>
@@ -329,12 +329,19 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z9i-pb-hcy">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awT-7n-GC6" customClass="LikeButtonView" customModule="likeVKontakte" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="80" width="120" height="20"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="z9i-pb-hcy" secondAttribute="bottom" id="0Qf-nh-TYk"/>
                                                 <constraint firstItem="z9i-pb-hcy" firstAttribute="leading" secondItem="tPQ-KW-euz" secondAttribute="leading" id="4pN-UY-pM5"/>
+                                                <constraint firstItem="awT-7n-GC6" firstAttribute="leading" secondItem="z9i-pb-hcy" secondAttribute="leading" id="ELu-kz-38u"/>
                                                 <constraint firstAttribute="trailing" secondItem="z9i-pb-hcy" secondAttribute="trailing" id="Y6y-FQ-yqN"/>
                                                 <constraint firstItem="z9i-pb-hcy" firstAttribute="top" secondItem="tPQ-KW-euz" secondAttribute="top" id="YGY-BA-LKI"/>
+                                                <constraint firstItem="awT-7n-GC6" firstAttribute="bottom" secondItem="z9i-pb-hcy" secondAttribute="bottom" id="fne-v7-vfG"/>
+                                                <constraint firstItem="awT-7n-GC6" firstAttribute="height" secondItem="z9i-pb-hcy" secondAttribute="height" multiplier="0.2" id="opE-it-J68"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>

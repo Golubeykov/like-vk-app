@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LikeButtonView" customModule="likeVKontakte" customModuleProvider="target">
+            <connections>
+                <outlet property="counterLabel" destination="HJ9-Gy-b1r" id="pQy-Kq-iBP"/>
+                <outlet property="heartImage" destination="lh4-V8-8VN" id="vtx-uI-XX2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="94" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ9-Gy-b1r">
+                    <rect key="frame" x="3" y="28.5" width="28.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-5C-Lgr">
+                    <rect key="frame" x="34.5" y="9" width="56.5" height="56.5"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="likeButton:" destination="-1" eventType="touchUpInside" id="UXB-Im-0d3"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lh4-V8-8VN">
+                    <rect key="frame" x="34.5" y="10.5" width="56.5" height="54"/>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lh4-V8-8VN" secondAttribute="height" multiplier="1:1" id="zEB-xd-Zu9"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="HJ9-Gy-b1r" firstAttribute="width" secondItem="lh4-V8-8VN" secondAttribute="width" multiplier="0.5" id="CdA-GW-Uu5"/>
+                <constraint firstItem="lh4-V8-8VN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="E9C-ok-EL3"/>
+                <constraint firstItem="HJ9-Gy-b1r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="F3w-9K-MNy"/>
+                <constraint firstItem="lh4-V8-8VN" firstAttribute="leading" secondItem="HJ9-Gy-b1r" secondAttribute="trailing" constant="3" id="K3p-lB-God"/>
+                <constraint firstItem="BVj-5C-Lgr" firstAttribute="centerX" secondItem="lh4-V8-8VN" secondAttribute="centerX" id="LFR-KP-AeT"/>
+                <constraint firstItem="HJ9-Gy-b1r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MW6-Cn-Xzz"/>
+                <constraint firstItem="BVj-5C-Lgr" firstAttribute="height" secondItem="lh4-V8-8VN" secondAttribute="height" id="NpJ-Fx-enb"/>
+                <constraint firstAttribute="trailing" secondItem="lh4-V8-8VN" secondAttribute="trailing" constant="3" id="bJu-HJ-6sB"/>
+                <constraint firstItem="BVj-5C-Lgr" firstAttribute="centerY" secondItem="lh4-V8-8VN" secondAttribute="centerY" id="k7E-5d-ufy"/>
+                <constraint firstItem="BVj-5C-Lgr" firstAttribute="width" secondItem="lh4-V8-8VN" secondAttribute="width" id="n2n-2T-Nzc"/>
+                <constraint firstItem="lh4-V8-8VN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="t7b-8K-tye"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-84.057971014492765" y="-159.04017857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

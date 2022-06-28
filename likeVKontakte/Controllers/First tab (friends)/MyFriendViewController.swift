@@ -18,14 +18,8 @@ class MyFriendViewController: UIViewController {
     let reuseIdentifierFriendCell = "IdentifierFriendCell"
     
     override func viewDidLoad() {
-        
-//        for image in friend.photosLibrary {
-//            print(index)
-//            if UIImage(named: image) == nil {
-//                friend.photosLibrary.remove(image)
-//            }
-//        }
         super.viewDidLoad()
+        friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
         friendName.text = friend.name
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
             friendAvatar.image = friendAvatarLoaded
