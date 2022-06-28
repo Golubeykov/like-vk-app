@@ -9,14 +9,27 @@ import UIKit
 
 class MyFriendViewController: UIViewController {
 
+    @IBOutlet weak var playStopButtonLabel: UIBarButtonItem!
     @IBOutlet weak var friendPhotos: UICollectionView!
     @IBOutlet weak var friendAvatarView: UIView!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    @IBAction func spinFriend(_ sender: UIBarButtonItem) {
+        isRotating = !isRotating
+        print(isRotating)
+        if isRotating {
+            playStopButtonLabel.image = UIImage(systemName: "stop.fill")
+            self.rotateView(targetView: friendAvatarView, duration: 2)
+        } else {
+            playStopButtonLabel.image = UIImage(systemName: "play.fill")
+            self.friendAvatarView.layer.removeAllAnimations()
+        }
+    }
     
     var friend: Friend = Friend(name: "", imageName: "", photosLibrary: [])
     var filteredPhotos: [String] { friend.photosLibrary.filter { UIImage(named: $0) != nil } }
     let reuseIdentifierFriendCell = "IdentifierFriendCell"
+    var isRotating = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +44,16 @@ class MyFriendViewController: UIViewController {
         friendPhotos.delegate = self
         friendPhotos.reloadData()
     }
+    private func rotateView(targetView: UIView, duration: Double = 5) {
+       UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
+           targetView.transform = targetView.transform.rotated(by: .pi)
+       }) { finished in
+           if self.isRotating {
+           print(duration)
+           self.rotateView(targetView: targetView, duration: duration)
+           }
+       }
+   }
 }
 
 extension MyFriendViewController: UICollectionViewDataSource {

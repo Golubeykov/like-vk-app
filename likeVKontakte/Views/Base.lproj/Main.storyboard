@@ -318,7 +318,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awT-7n-GC6" customClass="LikeButtonView" customModule="likeVKontakte" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="80" width="12" height="20"/>
+                                                    <rect key="frame" x="0.0" y="80" width="45" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -379,12 +379,19 @@
                             <constraint firstItem="izO-Pt-Zb0" firstAttribute="leading" secondItem="ATQ-fJ-z3u" secondAttribute="leading" constant="30" id="xGs-G0-W2r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Tyf-Yy-Hzn"/>
+                    <navigationItem key="navigationItem" id="Tyf-Yy-Hzn">
+                        <barButtonItem key="rightBarButtonItem" image="play.fill" catalog="system" style="plain" id="8e6-qM-Zip">
+                            <connections>
+                                <action selector="spinFriend:" destination="VRK-bb-a6l" id="Bdg-L4-NnP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="friendAvatar" destination="Nfc-Or-RBJ" id="fc4-gk-jLo"/>
                         <outlet property="friendAvatarView" destination="yG4-Rs-q3g" id="3jp-yN-Wvw"/>
                         <outlet property="friendName" destination="nQl-Bc-WZT" id="k1Q-5K-8pO"/>
                         <outlet property="friendPhotos" destination="Vca-SE-aG9" id="GL9-H4-ATW"/>
+                        <outlet property="playStopButtonLabel" destination="8e6-qM-Zip" id="AZV-nE-cdx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxe-i7-N24" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -454,6 +461,7 @@
         <image name="catLogo" width="847.66668701171875" height="582"/>
         <image name="face.smiling" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spaceBackground" width="480" height="853.33331298828125"/>
         <namedColor name="AccentColor">
