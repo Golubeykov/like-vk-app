@@ -56,7 +56,7 @@ extension MyGroupsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
+    // Зум фото при нажатии на него
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected \(myGroups[indexPath.row].logoName) group")
         tableView.reloadData()
@@ -74,12 +74,9 @@ extension MyGroupsViewController: UITableViewDelegate {
     }
     
     @objc func removeSubview(){
-        print("Start remove subview")
         if let viewWithTag = self.view.viewWithTag(100) {
             viewWithTag.removeFromSuperview()
-        }else{
-            print("No!")
-        }
+    }
     }
 }
 

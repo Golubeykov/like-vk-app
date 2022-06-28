@@ -14,9 +14,17 @@ class MyFriendViewController: UIViewController {
     @IBOutlet weak var friendName: UILabel!
     
     var friend: Friend = Friend(name: "", imageName: "", photosLibrary: [])
+    var filteredPhotos: [String] { friend.photosLibrary.filter { UIImage(named: $0) != nil } }
     let reuseIdentifierFriendCell = "IdentifierFriendCell"
     
     override func viewDidLoad() {
+        
+//        for image in friend.photosLibrary {
+//            print(index)
+//            if UIImage(named: image) == nil {
+//                friend.photosLibrary.remove(image)
+//            }
+//        }
         super.viewDidLoad()
         friendName.text = friend.name
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
@@ -30,12 +38,12 @@ class MyFriendViewController: UIViewController {
 
 extension MyFriendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        friend.photosLibrary.count
+        filteredPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierFriendCell, for: indexPath) as! FriendCollectionViewCell
-        if let friendPhotoLibraryItem = UIImage(named: friend.photosLibrary[indexPath.item]) {
+        if let friendPhotoLibraryItem = UIImage(named: filteredPhotos[indexPath.item]) {
         cell.friendPhotosCell.image = friendPhotoLibraryItem
         } else { cell.friendPhotosCell.image = UIImage(systemName: "multiply") }
         return cell
