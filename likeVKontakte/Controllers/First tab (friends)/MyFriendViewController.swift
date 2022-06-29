@@ -19,7 +19,7 @@ class MyFriendViewController: UIViewController {
         print(isRotating)
         if isRotating {
             playStopButtonLabel.image = UIImage(systemName: "stop.fill")
-            self.rotateView(targetView: friendAvatarView, duration: 2)
+            self.rotateView(targetView: friendAvatarView, duration: 0.5)
         } else {
             playStopButtonLabel.image = UIImage(systemName: "play.fill")
             self.friendAvatarView.layer.removeAllAnimations()
@@ -44,9 +44,14 @@ class MyFriendViewController: UIViewController {
         friendPhotos.delegate = self
         friendPhotos.reloadData()
     }
-    private func rotateView(targetView: UIView, duration: Double = 5) {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateFriendAvatar()
+    }
+    private func rotateView(targetView: UIView, duration: Double = 0.5) {
        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
-           targetView.transform = targetView.transform.rotated(by: .pi)
+           targetView.transform = targetView.transform.rotated(by: .pi/10)
        }) { finished in
            if self.isRotating {
            print(duration)
@@ -54,7 +59,24 @@ class MyFriendViewController: UIViewController {
            }
        }
    }
+
+    func animateFriendAvatar () {
+        let aSelector: Selector = #selector(animateAvatar)
+        let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
+        friendAvatarView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func animateAvatar() {
+        let springAnimate = CASpringAnimation(keyPath: "transform.scale")
+        springAnimate.fromValue = 0.9
+        springAnimate.toValue = 1
+        springAnimate.duration = 1
+        springAnimate.stiffness = 300
+        springAnimate.mass = 2
+        self.friendAvatarView.layer.add(springAnimate, forKey: nil)
+    }
 }
+
 
 extension MyFriendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
