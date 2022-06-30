@@ -102,7 +102,27 @@ extension MyFriendViewController: UICollectionViewDataSource {
 }
 //Delegate
 extension MyFriendViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected \(filteredPhotos[indexPath.item]) image")
+        //tableView.reloadData()
+        let logoView = UIView(frame: self.view.frame)
+        logoView.tag = 100
+        let imageView = UIImageView(frame: logoView.frame)
+        imageView.image = UIImage(named: filteredPhotos[indexPath.item])
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(logoView)
+        logoView.addSubview(imageView)
+        
+        let aSelector: Selector = #selector(MyFriendViewController.removeSubview)
+        let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
+        logoView.addGestureRecognizer(tapGesture)
+    }
     
+    @objc func removeSubview(){
+        if let viewWithTag = self.view.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+    }
+    }
     
 }
 extension MyFriendViewController: UICollectionViewDelegateFlowLayout {
