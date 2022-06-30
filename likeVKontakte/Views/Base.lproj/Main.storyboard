@@ -439,6 +439,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="onX-DE-IJa"/>
+                    <connections>
+                        <outlet property="horizontalGalleryView" destination="yrj-q5-UEe" id="ZfL-gB-kKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoG-B2-7n7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
