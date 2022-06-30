@@ -429,12 +429,22 @@
                                     <constraint firstAttribute="width" secondItem="yrj-q5-UEe" secondAttribute="height" multiplier="1:1" id="adu-O6-ETf"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36r-Bk-9o6" customClass="StarView" customModule="likeVKontakte" customModuleProvider="target">
+                                <rect key="frame" x="145" y="573" width="100" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="D32-vW-n7S"/>
+                                    <constraint firstAttribute="height" constant="128" id="all-Zv-bhL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3eA-Ew-7i7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="36r-Bk-9o6" firstAttribute="centerX" secondItem="VdE-oV-IRO" secondAttribute="centerX" id="AHf-L3-55w"/>
                             <constraint firstItem="yrj-q5-UEe" firstAttribute="top" secondItem="3eA-Ew-7i7" secondAttribute="top" constant="25" id="X4c-zm-Xoi"/>
                             <constraint firstItem="yrj-q5-UEe" firstAttribute="leading" secondItem="3eA-Ew-7i7" secondAttribute="leading" id="fIf-Ie-mQC"/>
+                            <constraint firstItem="36r-Bk-9o6" firstAttribute="top" secondItem="yrj-q5-UEe" secondAttribute="bottom" constant="70" id="pM2-pN-II4"/>
                             <constraint firstItem="yrj-q5-UEe" firstAttribute="trailing" secondItem="3eA-Ew-7i7" secondAttribute="trailing" id="vl0-ID-DCV"/>
                         </constraints>
                     </view>

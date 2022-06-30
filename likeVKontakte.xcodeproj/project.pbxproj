@@ -32,6 +32,7 @@
 		3AC5FF73286D911500FB668F /* HorizontalGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF72286D911500FB668F /* HorizontalGalleryViewController.swift */; };
 		3AC5FF75286D95D900FB668F /* HorizontalGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */; };
 		3AC5FF77286D95E400FB668F /* HorizontalGalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */; };
+		3AC5FF79286DEC5200FB668F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF78286DEC5100FB668F /* StarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		3AC5FF72286D911500FB668F /* HorizontalGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGalleryViewController.swift; sourceTree = "<group>"; };
 		3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGalleryView.swift; sourceTree = "<group>"; };
 		3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalGalleryView.xib; sourceTree = "<group>"; };
+		3AC5FF78286DEC5100FB668F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */,
 				3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */,
 				3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */,
+				3AC5FF78286DEC5100FB668F /* StarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				3A1F785828536B690005CA9A /* LoginFormController.swift in Sources */,
 				3AC5FF75286D95D900FB668F /* HorizontalGalleryView.swift in Sources */,
 				3A7D7EA128536AE8000A67E6 /* AppDelegate.swift in Sources */,
+				3AC5FF79286DEC5200FB668F /* StarView.swift in Sources */,
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
 				3AC5FF6B2865DCD800FB668F /* MyFriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
