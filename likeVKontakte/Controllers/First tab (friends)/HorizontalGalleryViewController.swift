@@ -21,6 +21,7 @@ class HorizontalGalleryViewController: UIViewController {
         }
         super.viewDidLoad()
         print(filteredPhotos)
+        horizontalGalleryView.setImages(images: photos)
     }
 
 }
