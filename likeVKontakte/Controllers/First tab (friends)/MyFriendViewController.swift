@@ -14,6 +14,7 @@ class MyFriendViewController: UIViewController {
     @IBOutlet weak var friendAvatarView: UIView!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    //Прокрутить аватарку друга
     @IBAction func spinFriend(_ sender: UIBarButtonItem) {
         isRotating = !isRotating
         print(isRotating)
@@ -49,6 +50,7 @@ class MyFriendViewController: UIViewController {
         super.viewDidAppear(animated)
         animateFriendAvatar()
     }
+    //Прокрутить аватарку друга
     private func rotateView(targetView: UIView, duration: Double = 0.5) {
        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
            targetView.transform = targetView.transform.rotated(by: .pi/10)
@@ -59,7 +61,7 @@ class MyFriendViewController: UIViewController {
            }
        }
    }
-
+    //Пружинная анимация аватарки друга
     func animateFriendAvatar () {
         let aSelector: Selector = #selector(animateAvatar)
         let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
@@ -75,6 +77,13 @@ class MyFriendViewController: UIViewController {
         springAnimate.mass = 2
         self.friendAvatarView.layer.add(springAnimate, forKey: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? HorizontalGalleryViewController {
+            vc.filteredPhotos = self.filteredPhotos
+        }
+    }
+    
 }
 
 

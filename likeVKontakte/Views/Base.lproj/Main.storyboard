@@ -318,8 +318,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awT-7n-GC6" customClass="LikeButtonView" customModule="likeVKontakte" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="80" width="45" height="20"/>
+                                                    <rect key="frame" x="0.0" y="80" width="25" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="awT-7n-GC6" secondAttribute="height" multiplier="94:75" id="d0A-4y-35o"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -380,11 +383,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tyf-Yy-Hzn">
-                        <barButtonItem key="rightBarButtonItem" image="play.fill" catalog="system" style="plain" id="8e6-qM-Zip">
-                            <connections>
-                                <action selector="spinFriend:" destination="VRK-bb-a6l" id="Bdg-L4-NnP"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="play.fill" catalog="system" style="plain" id="8e6-qM-Zip">
+                                <connections>
+                                    <action selector="spinFriend:" destination="VRK-bb-a6l" id="Bdg-L4-NnP"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Jl5-Kd-BMl">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ivr-Yi-tSb">
+                                    <rect key="frame" x="249.66666666666663" y="5" width="86" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="photo.artframe" catalog="system"/>
+                                    <connections>
+                                        <segue destination="905-bJ-si3" kind="show" id="t9X-hp-CK3"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="friendAvatar" destination="Nfc-Or-RBJ" id="fc4-gk-jLo"/>
@@ -397,6 +413,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxe-i7-N24" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3980" y="-290.04739336492889"/>
+        </scene>
+        <!--Horizontal Gallery View Controller-->
+        <scene sceneID="pIi-Dj-COJ">
+            <objects>
+                <viewController id="905-bJ-si3" customClass="HorizontalGalleryViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VdE-oV-IRO">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-q5-UEe" customClass="HorizontalGalleryView" customModule="likeVKontakte" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113" width="390" height="390"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yrj-q5-UEe" secondAttribute="height" multiplier="1:1" id="adu-O6-ETf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3eA-Ew-7i7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yrj-q5-UEe" firstAttribute="top" secondItem="3eA-Ew-7i7" secondAttribute="top" constant="25" id="X4c-zm-Xoi"/>
+                            <constraint firstItem="yrj-q5-UEe" firstAttribute="leading" secondItem="3eA-Ew-7i7" secondAttribute="leading" id="fIf-Ie-mQC"/>
+                            <constraint firstItem="yrj-q5-UEe" firstAttribute="trailing" secondItem="3eA-Ew-7i7" secondAttribute="trailing" id="vl0-ID-DCV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="onX-DE-IJa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoG-B2-7n7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4747.6923076923076" y="-290.04739336492889"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="EXB-CS-9BO">
@@ -461,6 +507,7 @@
         <image name="catLogo" width="847.66668701171875" height="582"/>
         <image name="face.smiling" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spaceBackground" width="480" height="853.33331298828125"/>

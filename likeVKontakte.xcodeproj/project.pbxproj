@@ -29,6 +29,9 @@
 		3AC5FF6D2865E18C00FB668F /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF6C2865E18C00FB668F /* FriendCollectionViewCell.swift */; };
 		3AC5FF6F286B1CE600FB668F /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF6E286B1CE600FB668F /* LikeButtonView.swift */; };
 		3AC5FF71286B1CFA00FB668F /* LikeButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */; };
+		3AC5FF73286D911500FB668F /* HorizontalGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF72286D911500FB668F /* HorizontalGalleryViewController.swift */; };
+		3AC5FF75286D95D900FB668F /* HorizontalGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */; };
+		3AC5FF77286D95E400FB668F /* HorizontalGalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		3AC5FF6C2865E18C00FB668F /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		3AC5FF6E286B1CE600FB668F /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
 		3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeButtonView.xib; sourceTree = "<group>"; };
+		3AC5FF72286D911500FB668F /* HorizontalGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGalleryViewController.swift; sourceTree = "<group>"; };
+		3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGalleryView.swift; sourceTree = "<group>"; };
+		3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalGalleryView.xib; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,6 +140,8 @@
 				3AC5FF6C2865E18C00FB668F /* FriendCollectionViewCell.swift */,
 				3AC5FF6E286B1CE600FB668F /* LikeButtonView.swift */,
 				3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */,
+				3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */,
+				3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 			children = (
 				3A2CB813285F381E0017EF54 /* AllFriendsTableViewController.swift */,
 				3AC5FF6A2865DCD800FB668F /* MyFriendViewController.swift */,
+				3AC5FF72286D911500FB668F /* HorizontalGalleryViewController.swift */,
 			);
 			path = "First tab (friends)";
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 				3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */,
 				3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */,
 				3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */,
+				3AC5FF77286D95E400FB668F /* HorizontalGalleryView.xib in Resources */,
 				3AC5FF71286B1CFA00FB668F /* LikeButtonView.xib in Resources */,
 				3AC5FF622865B0AF00FB668F /* GroupListTableViewCell.xib in Resources */,
 			);
@@ -311,10 +321,12 @@
 			files = (
 				3A2CB814285F381E0017EF54 /* AllFriendsTableViewController.swift in Sources */,
 				3AC5FF642865B4EA00FB668F /* MyGroupsViewController.swift in Sources */,
+				3AC5FF73286D911500FB668F /* HorizontalGalleryViewController.swift in Sources */,
 				3A2CB818285F3AC80017EF54 /* Friend.swift in Sources */,
 				3A2CB81A285F3EE40017EF54 /* FriendsListTableViewCell.swift in Sources */,
 				3AC5FF662865C32D00FB668F /* AllGroupsViewController.swift in Sources */,
 				3A1F785828536B690005CA9A /* LoginFormController.swift in Sources */,
+				3AC5FF75286D95D900FB668F /* HorizontalGalleryView.swift in Sources */,
 				3A7D7EA128536AE8000A67E6 /* AppDelegate.swift in Sources */,
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
 				3AC5FF6B2865DCD800FB668F /* MyFriendViewController.swift in Sources */,
