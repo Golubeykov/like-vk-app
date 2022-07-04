@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cuY-al-ydV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B45-M9-6WO">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -139,6 +139,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="652" y="109"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="NmD-oB-W6E">
+            <objects>
+                <viewController id="B45-M9-6WO" customClass="VKAuthViewController" customModule="likeVKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vwI-NS-zFK">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-7K-8Xa">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mcj-uh-aZO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KFz-7K-8Xa" firstAttribute="top" secondItem="mcj-uh-aZO" secondAttribute="top" id="cW8-5T-g49"/>
+                            <constraint firstItem="mcj-uh-aZO" firstAttribute="bottom" secondItem="KFz-7K-8Xa" secondAttribute="bottom" id="chR-7l-rWG"/>
+                            <constraint firstItem="mcj-uh-aZO" firstAttribute="trailing" secondItem="KFz-7K-8Xa" secondAttribute="trailing" id="dYj-G8-z2A"/>
+                            <constraint firstItem="KFz-7K-8Xa" firstAttribute="leading" secondItem="mcj-uh-aZO" secondAttribute="leading" id="t5f-aa-oiN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="KFz-7K-8Xa" id="hOE-uZ-En1"/>
+                        <segue destination="cuY-al-ydV" kind="presentation" identifier="VKAuthSuccess" modalPresentationStyle="fullScreen" id="Hky-3t-015"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLI-9q-YJZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="883"/>
         </scene>
         <!--Группы-->
         <scene sceneID="i2a-s4-HkF">
@@ -516,6 +551,9 @@
             <point key="canvasLocation" x="3980" y="573.69668246445497"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hky-3t-015"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="catLogo" width="847.66668701171875" height="582"/>
         <image name="face.smiling" catalog="system" width="128" height="121"/>
