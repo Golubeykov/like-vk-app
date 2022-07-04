@@ -8,12 +8,8 @@
 import UIKit
 
 class AllFriendsTableViewController: UITableViewController {
-    
-    private let testFriends: [Friend] = [
-    Friend(name: "Лёлик", imageName: "Lelik", photosLibrary: ["meow", "kus", "catLogo","fish"]),
-    Friend(name: "Миса", imageName: "Misa", photosLibrary: ["kus", "tsarap", "fish","Stepan"]),
-    Friend(name: "Степан", imageName: "Stepan", photosLibrary: ["test", "kus", "tsarap","meow"])
-    ]
+
+    private let testFriends = MyFriendsStorage.shared.getMyFriends()
 
     override func viewDidLoad() {
         super.viewDidLoad()

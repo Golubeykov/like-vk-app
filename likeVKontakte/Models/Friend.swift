@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Friend {
+struct Friend: Equatable {
     var name: String
     var imageName: String
     var photosLibrary: [String]
