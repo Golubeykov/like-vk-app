@@ -66,20 +66,18 @@ extension VKAuthViewController: WKNavigationDelegate {
              }
 
          if let token = params["access_token"], let user_id = params["user_id"] {
-//             doNetworkRequest(token: token,user_id: user_id)
-             print("token :: \(token)")
-             print("user id :: \(user_id)")
+             doNetworkRequest(token: token,user_id: user_id)
              performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }
         decisionHandler(.allow)
      }
  }
 
-//extension VKAuthViewController {
-//    //MARK: - вызовы сервисов (get friends, groups) (шаг 3?)
-//    func doNetworkRequest(token: String, user_id: String) {
-//         let service = VKService(token: token, user_id: user_id)
-//         service.getFriends()
-//         service.getFriendsAF()
-//     }
-//}
+extension VKAuthViewController {
+    //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
+    func doNetworkRequest(token: String, user_id: String) {
+         let service = VKService(token: token, user_id: user_id)
+         service.getFriends()
+         service.getFriendsAF()
+     }
+}

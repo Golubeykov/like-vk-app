@@ -19,7 +19,6 @@
 		3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA628536AE8000A67E6 /* Main.storyboard */; };
 		3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA928536AEA000A67E6 /* Assets.xcassets */; };
 		3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */; };
-		3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */; };
 		3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */; };
 		3AC5FF622865B0AF00FB668F /* GroupListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */; };
 		3AC5FF642865B4EA00FB668F /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF632865B4EA00FB668F /* MyGroupsViewController.swift */; };
@@ -52,7 +51,6 @@
 		3A7D7EA928536AEA000A67E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A7D7EAC28536AEA000A67E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A7D7EAE28536AEA000A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
 		3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListTableViewCell.swift; sourceTree = "<group>"; };
 		3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListTableViewCell.xib; sourceTree = "<group>"; };
 		3AC5FF632865B4EA00FB668F /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
@@ -113,13 +111,13 @@
 			children = (
 				3A7D7EA028536AE8000A67E6 /* AppDelegate.swift */,
 				3A7D7EA228536AE8000A67E6 /* SceneDelegate.swift */,
+				3AC5FF7C2873368500FB668F /* Services */,
 				3AC5FF672865D84600FB668F /* Storage */,
 				3AB84D4A285A5696006D1CDF /* Models */,
 				3AB84D4C285A56A3006D1CDF /* Controllers */,
 				3AB84D4B285A569E006D1CDF /* Views */,
 				3A7D7EA928536AEA000A67E6 /* Assets.xcassets */,
 				3A7D7EAE28536AEA000A67E6 /* Info.plist */,
-				3AC5FF5E2865AC5100FB668F /* Temp deprecated */,
 			);
 			path = likeVKontakte;
 			sourceTree = "<group>";
@@ -181,21 +179,20 @@
 			path = "Second tab (groups)";
 			sourceTree = "<group>";
 		};
-		3AC5FF5E2865AC5100FB668F /* Temp deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
-				3AC5FF5A2861173700FB668F /* VKLoginViewController.swift */,
-			);
-			path = "Temp deprecated";
-			sourceTree = "<group>";
-		};
 		3AC5FF672865D84600FB668F /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				3AC5FF682865D85800FB668F /* MyGroups.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		3AC5FF7C2873368500FB668F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		4079ECF346CB968A89654164 /* Pods */ = {
@@ -339,7 +336,6 @@
 				3AC5FF7B287300B000FB668F /* VKAuthViewController.swift in Sources */,
 				3AC5FF6B2865DCD800FB668F /* MyFriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
-				3AC5FF5B2861173700FB668F /* VKLoginViewController.swift in Sources */,
 				3AC5FF6F286B1CE600FB668F /* LikeButtonView.swift in Sources */,
 				3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */,
 				3AC5FF6D2865E18C00FB668F /* FriendCollectionViewCell.swift in Sources */,
