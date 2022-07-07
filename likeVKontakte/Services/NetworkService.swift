@@ -25,7 +25,7 @@ class VKService {
             urlConstructor.host = "api.vk.com"
             urlConstructor.path = "/method/friends.get"
             urlConstructor.queryItems = [
-                URLQueryItem(name: "lang", value: "en"),
+                //URLQueryItem(name: "lang", value: "en"),
                 URLQueryItem(name: "user_id", value: user_id),
                 URLQueryItem(name: "order_id", value: "name"),
                 URLQueryItem(name: "fields", value: "city, country, photo_100, universities"),

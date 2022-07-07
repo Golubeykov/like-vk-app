@@ -36,14 +36,23 @@ class MyFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         friendAvatar.layer.masksToBounds = true
-        //friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
+        friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
         friendAvatar.applyshadowWithCorner(containerView: friendAvatarView, cornerRadious: friendAvatar.bounds.height/2)
         friendName.text = friend.name
+        
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
             friendAvatar.image = friendAvatarLoaded
-        } else if let friendAvatarInternetLoaded = UIImage(data: try! Data(contentsOf: URL(string: "https://i.pinimg.com/originals/fc/8d/e5/fc8de58425df53feda5959e0c868cf0b.jpg")!)){
+        } /*else if let friendAvatarInternetLoaded = UIImage(data: {
+            do { let data = try Data(contentsOf: URL(string: friend.imageName)!)
+                return data
+} catch {
+print("нет такого url")
+return Data()
+}
+}()
+){
             friendAvatar.image = friendAvatarInternetLoaded
-        } else {
+        } */ else {
             friendAvatar.image = UIImage(named: "Stepan")
         }
         friendPhotos.dataSource = self
