@@ -119,13 +119,13 @@ extension VKAuthViewController {
         self.loadView1.backgroundColor = .blue
         self.loadView2.backgroundColor = .blue
         self.loadView3.backgroundColor = .blue
-        UIView.animate(withDuration: 0.9, delay: 0, options: [.repeat], animations: {
+        UIView.animate(withDuration: 0.9, delay: 0, options: [.autoreverse], animations: {
             self.loadView1.alpha = 0
         })
-        UIView.animate(withDuration: 0.9, delay: 0.3, options: [.repeat], animations: {
+        UIView.animate(withDuration: 0.9, delay: 0.3, options: [.autoreverse], animations: {
             self.loadView2.alpha = 0
         })
-        UIView.animate(withDuration: 0.9, delay: 0.6, options: [.repeat], animations: {
+        UIView.animate(withDuration: 0.9, delay: 0.6, options: [.autoreverse], animations: {
             self.loadView3.alpha = 0
         })
     }
