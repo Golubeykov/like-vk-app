@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import SwiftUI
 
 class VKAuthViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
@@ -76,8 +77,9 @@ extension VKAuthViewController: WKNavigationDelegate {
              }
 
          if let token = params["access_token"], let user_id = params["user_id"] {
-            self.doNetworkRequest(token: token,user_id: user_id)
-            performSegue(withIdentifier: "VKAuthSuccess", sender: self)
+             self.doNetworkRequest(token: token,user_id: user_id)
+            //Костыль?
+            //performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }
         decisionHandler(.cancel)
      }
@@ -86,7 +88,7 @@ extension VKAuthViewController: WKNavigationDelegate {
 extension VKAuthViewController {
     //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
     func doNetworkRequest(token: String, user_id: String) {
-         let service = VKService(token: token, user_id: user_id)
+        let service = VKService(token: token, user_id: user_id)
         service.getFriends { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -97,12 +99,21 @@ extension VKAuthViewController {
                     let newFriend: Friend = Friend(id: String(friend.id), name: friend.name, imageName: friend.imageURL, photosLibrary: [])
                     MyFriendsStorage.shared.addFriend(friend: newFriend)
                 }
-            case .failure: print("Случилась ошибка")
+                //Костыль?
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "VKAuthSuccess", sender: self)
+                }
+            case .failure:
+                print("Случилась ошибка")
+                //Костыль?
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "VKAuthSuccess", sender: self)
+                }
             }
         }
      }
 }
-
+// Анимация загрузки
 extension VKAuthViewController {
     func loadAnimation() {
         self.loadView1.backgroundColor = .blue
