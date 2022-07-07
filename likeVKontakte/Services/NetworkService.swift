@@ -28,6 +28,7 @@ class VKService {
                 //URLQueryItem(name: "lang", value: "en"),
                 URLQueryItem(name: "user_id", value: user_id),
                 URLQueryItem(name: "order_id", value: "name"),
+                URLQueryItem(name: "count", value: "5"),
                 URLQueryItem(name: "fields", value: "city, country, photo_100, universities"),
                 URLQueryItem(name: "name_case", value: "nom"),
                 URLQueryItem(name: "access_token", value: token),

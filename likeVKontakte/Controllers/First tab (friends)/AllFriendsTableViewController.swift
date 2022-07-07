@@ -39,6 +39,7 @@ class AllFriendsTableViewController: UITableViewController {
                                                                 return data
         } catch {
             print("нет такого url")
+            print(friend.imageName)
             return Data()
         }
         }()

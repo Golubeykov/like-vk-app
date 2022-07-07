@@ -8,7 +8,7 @@
 import UIKit
 
 class MyFriendViewController: UIViewController {
-
+    
     @IBOutlet weak var playStopButtonLabel: UIBarButtonItem!
     @IBOutlet weak var friendPhotos: UICollectionView!
     @IBOutlet weak var friendAvatarView: UIView!
@@ -35,26 +35,29 @@ class MyFriendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendAvatar.layer.masksToBounds = true
-        friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
-        friendAvatar.applyshadowWithCorner(containerView: friendAvatarView, cornerRadious: friendAvatar.bounds.height/2)
         friendName.text = friend.name
         
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
             friendAvatar.image = friendAvatarLoaded
-        } /*else if let friendAvatarInternetLoaded = UIImage(data: {
+        } else if let friendAvatarInternetLoaded = UIImage(data: {
             do { let data = try Data(contentsOf: URL(string: friend.imageName)!)
                 return data
-} catch {
-print("нет такого url")
-return Data()
-}
-}()
-){
+            } catch {
+                print("нет такого url")
+                print(friend.imageName)
+                return Data()
+            }
+        }()
+        ){
             friendAvatar.image = friendAvatarInternetLoaded
-        } */ else {
+        }  else {
             friendAvatar.image = UIImage(named: "Stepan")
         }
+        
+        //добавляем тень
+        friendAvatar.layer.masksToBounds = true
+        friendAvatar.applyshadowWithCorner(containerView: friendAvatarView, cornerRadious: friendAvatar.bounds.height/2)
+        
         friendPhotos.dataSource = self
         friendPhotos.delegate = self
         friendPhotos.reloadData()
@@ -66,15 +69,15 @@ return Data()
     }
     //Прокрутить аватарку друга
     private func rotateView(targetView: UIView, duration: Double = 0.5) {
-       UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
-           targetView.transform = targetView.transform.rotated(by: .pi/10)
-       }) { finished in
-           if self.isRotating {
-           print(duration)
-           self.rotateView(targetView: targetView, duration: duration)
-           }
-       }
-   }
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
+            targetView.transform = targetView.transform.rotated(by: .pi/10)
+        }) { finished in
+            if self.isRotating {
+                print(duration)
+                self.rotateView(targetView: targetView, duration: duration)
+            }
+        }
+    }
     //Пружинная анимация аватарки друга
     func animateFriendAvatar () {
         let aSelector: Selector = #selector(animateAvatar)
@@ -150,8 +153,8 @@ extension UIImageView {
         containerView.clipsToBounds = false
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        containerView.layer.shadowRadius = 3
+        containerView.layer.shadowOffset = CGSize(width: 20, height: 20)
+        containerView.layer.shadowRadius = 10
         containerView.layer.cornerRadius = cornerRadious
         containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
         self.clipsToBounds = true
