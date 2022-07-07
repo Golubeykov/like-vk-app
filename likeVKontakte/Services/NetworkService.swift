@@ -27,7 +27,7 @@ class VKService {
             urlConstructor.queryItems = [
                 URLQueryItem(name: "lang", value: "en"),
                 URLQueryItem(name: "user_id", value: user_id),
-                URLQueryItem(name: "order_id", value: "hints"),
+                URLQueryItem(name: "order_id", value: "name"),
                 URLQueryItem(name: "fields", value: "city, country, photo_100, universities"),
                 URLQueryItem(name: "name_case", value: "nom"),
                 URLQueryItem(name: "access_token", value: token),
@@ -71,4 +71,23 @@ class VKService {
             }
         }
     }
+}
+
+func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+}
+
+func downloadImage(from url: URL) -> UIImage? {
+    print("Download Started")
+    var userImage: UIImage?
+    getData(from: url) { data, response, error in
+        guard let data = data, error == nil else { return }
+        print(response?.suggestedFilename ?? url.lastPathComponent)
+        print("Download Finished")
+        // always update the UI from the main thread
+        DispatchQueue.main.async() {
+            userImage = UIImage(data: data)
+        }
+    }
+    return userImage
 }

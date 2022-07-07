@@ -14,6 +14,7 @@ class MyFriendViewController: UIViewController {
     @IBOutlet weak var friendAvatarView: UIView!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    
     //Прокрутить аватарку друга
     @IBAction func spinFriend(_ sender: UIBarButtonItem) {
         isRotating = !isRotating
@@ -27,7 +28,7 @@ class MyFriendViewController: UIViewController {
         }
     }
     
-    var friend: Friend = Friend(name: "", imageName: "", photosLibrary: [])
+    var friend: Friend = Friend(id: "", name: "", imageName: "", photosLibrary: [])
     var filteredPhotos: [String] { friend.photosLibrary.filter { UIImage(named: $0) != nil } }
     let reuseIdentifierFriendCell = "IdentifierFriendCell"
     var isRotating = false
@@ -35,11 +36,17 @@ class MyFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         friendAvatar.layer.masksToBounds = true
+        let friendAvatarInternetLoaded = downloadImage(from: URL(fileURLWithPath: "https://i.pinimg.com/originals/fc/8d/e5/fc8de58425df53feda5959e0c868cf0b.jpg"))
+        
         //friendAvatar.layer.cornerRadius = friendAvatar.bounds.height/2
         friendAvatar.applyshadowWithCorner(containerView: friendAvatarView, cornerRadious: friendAvatar.bounds.height/2)
         friendName.text = friend.name
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {
             friendAvatar.image = friendAvatarLoaded
+        } else if let friendAvatarInternetLoaded = UIImage(data: try! Data(contentsOf: URL(string: "https://i.pinimg.com/originals/fc/8d/e5/fc8de58425df53feda5959e0c868cf0b.jpg")!)){
+            friendAvatar.image = friendAvatarInternetLoaded
+        } else {
+            friendAvatar.image = UIImage(named: "Stepan")
         }
         friendPhotos.dataSource = self
         friendPhotos.delegate = self

@@ -34,6 +34,7 @@
 		3AC5FF79286DEC5200FB668F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF78286DEC5100FB668F /* StarView.swift */; };
 		3AC5FF7B287300B000FB668F /* VKAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF7A287300AE00FB668F /* VKAuthViewController.swift */; };
 		3AD41A91287348E100BAC61E /* MyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD41A90287348E100BAC61E /* MyFriends.swift */; };
+		3AD41A972877016D00BAC61E /* FriendJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD41A962877016D00BAC61E /* FriendJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		3AC5FF78286DEC5100FB668F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		3AC5FF7A287300AE00FB668F /* VKAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthViewController.swift; sourceTree = "<group>"; };
 		3AD41A90287348E100BAC61E /* MyFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriends.swift; sourceTree = "<group>"; };
+		3AD41A962877016D00BAC61E /* FriendJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendJSON.swift; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			children = (
 				3A2CB811285F36250017EF54 /* Group.swift */,
 				3A2CB817285F3AC80017EF54 /* Friend.swift */,
+				3AD41A962877016D00BAC61E /* FriendJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				3AC5FF7B287300B000FB668F /* VKAuthViewController.swift in Sources */,
 				3AC5FF6B2865DCD800FB668F /* MyFriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,
+				3AD41A972877016D00BAC61E /* FriendJSON.swift in Sources */,
 				3AC5FF6F286B1CE600FB668F /* LikeButtonView.swift in Sources */,
 				3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */,
 				3AC5FF6D2865E18C00FB668F /* FriendCollectionViewCell.swift in Sources */,

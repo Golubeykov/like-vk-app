@@ -8,6 +8,7 @@
 import Foundation
 
 struct Friend: Equatable {
+    var id: String
     var name: String
     var imageName: String
     var photosLibrary: [String]
