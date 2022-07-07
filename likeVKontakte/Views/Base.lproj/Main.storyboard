@@ -150,30 +150,62 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-7K-8Xa">
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRD-c1-SgJ">
+                                <rect key="frame" x="162.66666666666666" y="389.66666666666669" width="65" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qRD-c1-SgJ" secondAttribute="height" multiplier="1:1" id="bqy-WO-9iQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQ5-eD-TtT">
+                                <rect key="frame" x="252.66666666666663" y="389.66666666666669" width="65" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PQ5-eD-TtT" secondAttribute="height" multiplier="1:1" id="8aD-Ms-isp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3H-83-HbY">
+                                <rect key="frame" x="72.666666666666671" y="389.66666666666669" width="65.000000000000014" height="65"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B3H-83-HbY" secondAttribute="height" multiplier="1:1" id="tff-kY-kT8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mcj-uh-aZO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PQ5-eD-TtT" firstAttribute="width" secondItem="qRD-c1-SgJ" secondAttribute="width" id="6dG-lk-ksa"/>
+                            <constraint firstItem="PQ5-eD-TtT" firstAttribute="leading" secondItem="qRD-c1-SgJ" secondAttribute="trailing" constant="25" id="AGh-8h-xZW"/>
+                            <constraint firstItem="PQ5-eD-TtT" firstAttribute="centerY" secondItem="vwI-NS-zFK" secondAttribute="centerY" id="Dnj-Lr-3vw"/>
+                            <constraint firstItem="B3H-83-HbY" firstAttribute="width" secondItem="qRD-c1-SgJ" secondAttribute="width" id="Ndz-Qw-pCe"/>
+                            <constraint firstItem="B3H-83-HbY" firstAttribute="centerY" secondItem="vwI-NS-zFK" secondAttribute="centerY" id="Rzn-Yk-uAw"/>
+                            <constraint firstItem="qRD-c1-SgJ" firstAttribute="leading" secondItem="B3H-83-HbY" secondAttribute="trailing" constant="25" id="Wj5-Oa-FDk"/>
+                            <constraint firstItem="qRD-c1-SgJ" firstAttribute="centerY" secondItem="vwI-NS-zFK" secondAttribute="centerY" id="aFb-3b-b2n"/>
                             <constraint firstItem="KFz-7K-8Xa" firstAttribute="top" secondItem="mcj-uh-aZO" secondAttribute="top" id="cW8-5T-g49"/>
                             <constraint firstItem="mcj-uh-aZO" firstAttribute="bottom" secondItem="KFz-7K-8Xa" secondAttribute="bottom" id="chR-7l-rWG"/>
                             <constraint firstItem="mcj-uh-aZO" firstAttribute="trailing" secondItem="KFz-7K-8Xa" secondAttribute="trailing" id="dYj-G8-z2A"/>
+                            <constraint firstItem="qRD-c1-SgJ" firstAttribute="width" secondItem="vwI-NS-zFK" secondAttribute="width" multiplier="0.166667" id="gyg-oO-qP1"/>
+                            <constraint firstItem="qRD-c1-SgJ" firstAttribute="centerX" secondItem="vwI-NS-zFK" secondAttribute="centerX" id="klC-tA-P7k"/>
                             <constraint firstItem="KFz-7K-8Xa" firstAttribute="leading" secondItem="mcj-uh-aZO" secondAttribute="leading" id="t5f-aa-oiN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadView1" destination="B3H-83-HbY" id="JoY-RL-F6L"/>
+                        <outlet property="loadView2" destination="qRD-c1-SgJ" id="i7R-4o-UgB"/>
+                        <outlet property="loadView3" destination="PQ5-eD-TtT" id="iln-rJ-O3F"/>
                         <outlet property="webView" destination="KFz-7K-8Xa" id="hOE-uZ-En1"/>
                         <segue destination="cuY-al-ydV" kind="presentation" identifier="VKAuthSuccess" modalPresentationStyle="fullScreen" id="Hky-3t-015"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLI-9q-YJZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="883"/>
+            <point key="canvasLocation" x="650.76923076923072" y="882.93838862559232"/>
         </scene>
         <!--Группы-->
         <scene sceneID="i2a-s4-HkF">
@@ -310,6 +342,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Мои друзья" id="Thj-qU-tPB"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="u03-bV-QV9">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="pullRefresh:" destination="bRa-5M-Ziw" eventType="valueChanged" id="1hV-Ts-nFZ"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <segue destination="VRK-bb-a6l" kind="show" id="pGw-5x-7dd"/>
                     </connections>

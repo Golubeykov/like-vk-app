@@ -18,7 +18,7 @@ class VKService {
         self.user_id = user_id
     }
     // URL Session
-    func getFriends() {
+    func getFriends(completion: @escaping (Result<[FriendJSON], FriendJSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
             urlConstructor.scheme = "https"
@@ -34,60 +34,61 @@ class VKService {
                 URLQueryItem(name: "v", value: "5.131")
             ]
         guard let url = urlConstructor.url else { return }
+        
         let session = URLSession.shared
+        
         let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print(error)
+            guard error == nil else {
+                print(error!.localizedDescription)
+                completion(.failure(.serverError))
                 return
             }
-            if let data = data {
-                let json = try! JSONSerialization.jsonObject(with: data)
-                print(json)
+            guard let data = data else {
+                completion(.failure(.noData))
+                print("Не пришли данные")
+                return
             }
+            do {
+            let friends = try JSONDecoder().decode(RootFriendJSON.self, from: data).response.items
+                completion(.success(friends))
+            } catch {
+                print("Ошибка декодирования")
+                print(error)
+                completion(.failure(.decodeError))
+            }
+            
         }
         task.resume()
     }
-    // Alamofire
-    func getFriendsAF() {
-        var urlConstructor = URLComponents()
-            urlConstructor.scheme = "https"
-            urlConstructor.host = "api.vk.com"
-            urlConstructor.path = "/method/friends.get"
-            urlConstructor.queryItems = [
-                URLQueryItem(name: "lang", value: "en"),
-                URLQueryItem(name: "user_id", value: user_id),
-                URLQueryItem(name: "order_id", value: "hints"),
-                URLQueryItem(name: "fields", value: "city, country, photo_100, universities"),
-                URLQueryItem(name: "name_case", value: "nom"),
-                URLQueryItem(name: "access_token", value: token),
-                URLQueryItem(name: "v", value: "5.131")
-            ]
-        guard let url = urlConstructor.url else { return }
+//    // Alamofire
+//    func getFriendsAF() {
+//        var urlConstructor = URLComponents()
+//            urlConstructor.scheme = "https"
+//            urlConstructor.host = "api.vk.com"
+//            urlConstructor.path = "/method/friends.get"
+//            urlConstructor.queryItems = [
+//                URLQueryItem(name: "lang", value: "en"),
+//                URLQueryItem(name: "user_id", value: user_id),
+//                URLQueryItem(name: "order_id", value: "hints"),
+//                URLQueryItem(name: "fields", value: "city, country, photo_100, universities"),
+//                URLQueryItem(name: "name_case", value: "nom"),
+//                URLQueryItem(name: "access_token", value: token),
+//                URLQueryItem(name: "v", value: "5.131")
+//            ]
+//        guard let url = urlConstructor.url else { return }
+//
+//        AF.request(url).responseJSON { (response) in
+//
+//            if let value = response.value {
+//                print(value)
+//            }
+//        }
+//    }
+//}
 
-        AF.request(url).responseJSON { (response) in
-
-            if let value = response.value {
-                print(value)
-            }
-        }
-    }
+enum FriendJSONError: Error {
+    case decodeError
+    case noData
+    case serverError
 }
-
-func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-    URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-}
-
-func downloadImage(from url: URL) -> UIImage? {
-    print("Download Started")
-    var userImage: UIImage?
-    getData(from: url) { data, response, error in
-        guard let data = data, error == nil else { return }
-        print(response?.suggestedFilename ?? url.lastPathComponent)
-        print("Download Finished")
-        // always update the UI from the main thread
-        DispatchQueue.main.async() {
-            userImage = UIImage(data: data)
-        }
-    }
-    return userImage
 }

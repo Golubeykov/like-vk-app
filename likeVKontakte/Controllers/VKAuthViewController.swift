@@ -10,6 +10,11 @@ import WebKit
 
 class VKAuthViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var loadView1: UIView!
+    @IBOutlet weak var loadView2: UIView!
+    @IBOutlet weak var loadView3: UIView!
+    
+    var friendsJSON: [FriendJSON] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +24,11 @@ class VKAuthViewController: UIViewController {
         if let request = vkAuthRequest() {
             webView.load(request)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
     //MARK: - Аутентификация (шаг 1)
     func vkAuthRequest() -> URLRequest? {
@@ -46,7 +56,6 @@ class VKAuthViewController: UIViewController {
 extension VKAuthViewController: WKNavigationDelegate {
     //Нужно, чтобы отловить момент успешной аутентификации (когда пойдет редирект на blank.html)
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Swift.Void) {
-
          guard let url = navigationResponse.response.url,
                url.path == "/blank.html",
                let fragment = url.fragment else {
@@ -54,6 +63,7 @@ extension VKAuthViewController: WKNavigationDelegate {
              decisionHandler(.allow)
              return
          }
+        self.loadAnimation()
          let params = fragment
              .components(separatedBy: "&")
              .map({ $0.components(separatedBy: "=") })
@@ -66,10 +76,10 @@ extension VKAuthViewController: WKNavigationDelegate {
              }
 
          if let token = params["access_token"], let user_id = params["user_id"] {
-             doNetworkRequest(token: token,user_id: user_id)
-             performSegue(withIdentifier: "VKAuthSuccess", sender: self)
+            self.doNetworkRequest(token: token,user_id: user_id)
+            performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }
-        decisionHandler(.allow)
+        decisionHandler(.cancel)
      }
  }
 
@@ -77,7 +87,35 @@ extension VKAuthViewController {
     //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
     func doNetworkRequest(token: String, user_id: String) {
          let service = VKService(token: token, user_id: user_id)
-         service.getFriends()
-         service.getFriendsAF()
+        service.getFriends { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let friends):
+                self.friendsJSON = friends
+                print(self.friendsJSON[0].name)
+                for friend in friends {
+                    var newFriend: Friend = Friend(id: String(friend.id), name: friend.name, imageName: friend.imageURL, photosLibrary: [])
+                    MyFriendsStorage.shared.addFriend(friend: newFriend)
+                }
+            case .failure: print("Случилась ошибка")
+            }
+        }
      }
+}
+
+extension VKAuthViewController {
+    func loadAnimation() {
+        self.loadView1.backgroundColor = .blue
+        self.loadView2.backgroundColor = .blue
+        self.loadView3.backgroundColor = .blue
+        UIView.animate(withDuration: 0.9, delay: 0, options: [.repeat], animations: {
+            self.loadView1.alpha = 0
+        })
+        UIView.animate(withDuration: 0.9, delay: 0.3, options: [.repeat], animations: {
+            self.loadView2.alpha = 0
+        })
+        UIView.animate(withDuration: 0.9, delay: 0.6, options: [.repeat], animations: {
+            self.loadView3.alpha = 0
+        })
+    }
 }

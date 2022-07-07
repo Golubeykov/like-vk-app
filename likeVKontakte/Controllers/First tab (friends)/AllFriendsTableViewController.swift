@@ -8,9 +8,15 @@
 import UIKit
 
 class AllFriendsTableViewController: UITableViewController {
-
-    private let testFriends = MyFriendsStorage.shared.getMyFriends()
-
+    @IBAction func pullRefresh(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.testFriends = MyFriendsStorage.shared.getMyFriends()
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }
+    }
+    private var testFriends = MyFriendsStorage.shared.getMyFriends()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
