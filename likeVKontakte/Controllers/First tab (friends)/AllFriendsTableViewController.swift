@@ -34,7 +34,15 @@ class AllFriendsTableViewController: UITableViewController {
         let imageName = "\(friend.imageName)"
         if let imageHardCode = UIImage(named: imageName) {
             cell.friendImage.image = imageHardCode
-        } else if let friendAvatarInternetLoaded = UIImage(data: try! Data(contentsOf: URL(string: "https://i.pinimg.com/originals/fc/8d/e5/fc8de58425df53feda5959e0c868cf0b.jpg")!))
+        } else if let friendAvatarInternetLoaded = UIImage(data: {
+                                                            do { let data = try Data(contentsOf: URL(string: friend.imageName)!)
+                                                                return data
+        } catch {
+            print("нет такого url")
+            return Data()
+        }
+        }()
+            )
         {
             cell.friendImage.image = friendAvatarInternetLoaded
         } else {

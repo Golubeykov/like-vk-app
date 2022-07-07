@@ -92,9 +92,9 @@ extension VKAuthViewController {
             switch result {
             case .success(let friends):
                 self.friendsJSON = friends
-                print(self.friendsJSON[0].name)
+                print(self.friendsJSON[0].imageURL)
                 for friend in friends {
-                    var newFriend: Friend = Friend(id: String(friend.id), name: friend.name, imageName: friend.imageURL, photosLibrary: [])
+                    let newFriend: Friend = Friend(id: String(friend.id), name: friend.name, imageName: friend.imageURL, photosLibrary: [])
                     MyFriendsStorage.shared.addFriend(friend: newFriend)
                 }
             case .failure: print("Случилась ошибка")

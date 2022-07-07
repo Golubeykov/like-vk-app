@@ -34,6 +34,7 @@ class MyFriendsStorage: NSObject {
         Friend(id: "", name: "Лёлик", imageName: "Lelik", photosLibrary: ["meow", "kus", "catLogo","fish"]),
     Friend(id: "", name: "Миса", imageName: "Misa", photosLibrary: ["kus", "tsarap", "fish","Stepan"]),
     Friend(id: "", name: "Степан", imageName: "Stepan", photosLibrary: ["test", "kus", "tsarap","meow"]),
-    Friend(id: "", name: "Антон", imageName: "No", photosLibrary: ["test", "kus", "tsarap","meow"])
+        Friend(id: "", name: "Матильда", imageName: "matilda", photosLibrary: ["test", "kus", "tsarap","meow"]),
+        Friend(id: "", name: "Рыжик", imageName: "Ryzik", photosLibrary: [])
     ]
 }
