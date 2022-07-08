@@ -63,7 +63,8 @@ extension MyGroupsViewController: UITableViewDelegate {
         let logoView = UIView(frame: self.view.frame)
         logoView.tag = 100
         let imageView = UIImageView(frame: logoView.frame)
-        imageView.image = UIImage(named: myGroups[indexPath.row].logoName.lowercased())
+        let cell = tableView.cellForRow(at: indexPath) as! GroupListTableViewCell
+        imageView.image = cell.groupLogo.image
         imageView.contentMode = .scaleAspectFit
         self.view.addSubview(logoView)
         logoView.addSubview(imageView)
