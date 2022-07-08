@@ -38,7 +38,7 @@ class VKAuthViewController: UIViewController {
          urlComponents.host = "oauth.vk.com"
          urlComponents.path = "/authorize"
          urlComponents.queryItems = [
-             URLQueryItem(name: "client_id", value: "8199321"),
+             URLQueryItem(name: "client_id", value: "8213929"),
              URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
              URLQueryItem(name: "response_type", value: "token"),
              URLQueryItem(name: "scope", value: "262150"),

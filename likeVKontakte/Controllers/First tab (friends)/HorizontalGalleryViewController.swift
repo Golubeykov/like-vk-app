@@ -17,6 +17,17 @@ class HorizontalGalleryViewController: UIViewController {
         for photoName in filteredPhotos {
             if let photo = UIImage(named: photoName) {
                 photos.append(photo)
+            } else if let friendPhotosInternetLoaded = UIImage(data: {
+                do { let data = try Data(contentsOf: URL(string: photoName)!)
+                    return data
+                } catch {
+                    print("нет такого url")
+                    print(photoName)
+                    return Data()
+                }
+            }()
+            ) {
+                photos.append(friendPhotosInternetLoaded)
             }
         }
         super.viewDidLoad()

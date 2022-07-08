@@ -88,9 +88,13 @@ class VKService {
                 do {
                     let path = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]+"/\(friend.name)PhotosData.json"
                     let urlPath = URL(fileURLWithPath: path)
+                    
+                    if !FileManager.default.fileExists(atPath: path) {
                     try FileManager.default.copyItem(at: urlFile!, to: urlPath)
                     completion(.success(urlPath))
-
+                    } else {
+                        completion(.success(urlPath))
+                    }
                 } catch {
                     print(error)
                     completion(.failure(.savingToFileManagerError))

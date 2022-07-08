@@ -29,17 +29,23 @@ class MyFriendViewController: UIViewController {
     }
     
     var friend: Friend = Friend(id: "", name: "", imageName: "", photosLibrary: [])
-    var filteredPhotos: [String] { friend.photosLibrary.filter { UIImage(named: $0) != nil } }
+    var filteredPhotos: [String] {
+        get {friend.photosLibrary}
+        set {friend.photosLibrary = newValue}
+    }
+    //var filteredPhotos: [String] { friend.photosLibrary.filter { UIImage(named: $0) != nil } }
     let reuseIdentifierFriendCell = "IdentifierFriendCell"
     var isRotating = false
+    
+    override func loadView() {
+        super.loadView()
+        self.parsePhotosJSON(friend: friend)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let token = NetworkData.shared.getToken()
-        let userID = NetworkData.shared.getLoggedUserId()
-        let vkService = VKService(token: token, user_id: userID)
-        vkService.getFriendsPhotos(for: friend)
+        //self.parsePhotosJSON(friend: friend)
         
         friendName.text = friend.name
         
@@ -112,13 +118,25 @@ class MyFriendViewController: UIViewController {
 
 extension MyFriendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        filteredPhotos.count
+        print("COUNT:", filteredPhotos.count)
+        return filteredPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierFriendCell, for: indexPath) as! FriendCollectionViewCell
         if let friendPhotoLibraryItem = UIImage(named: filteredPhotos[indexPath.item]) {
         cell.friendPhotosCell.image = friendPhotoLibraryItem
+        } else if let friendPhotosInternetLoaded = UIImage(data: {
+            do { let data = try Data(contentsOf: URL(string: filteredPhotos[indexPath.item])!)
+                return data
+            } catch {
+                print("нет такого url")
+                print(friend.imageName)
+                return Data()
+            }
+        }()
+        ){
+            cell.friendPhotosCell.image = friendPhotosInternetLoaded
         } else { cell.friendPhotosCell.image = UIImage(systemName: "multiply") }
         return cell
     }
@@ -166,4 +184,34 @@ extension UIImageView {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadious
     }
+}
+
+//Парсинг фото друга и добавление их в массив
+extension MyFriendViewController {
+    func parsePhotosJSON(friend: Friend) {
+        let token = NetworkData.shared.getToken()
+        let userId = NetworkData.shared.getLoggedUserId()
+        let networkService = VKService(token: token, user_id: userId)
+        networkService.getFriendsPhotos(for: friend) { [weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case .success(let urlPhotos):
+                guard let photoData = try? Data(contentsOf: urlPhotos) else { return }
+                guard let photoObjects = try? JSONDecoder().decode(PhotosFriendJSON.self, from: photoData).response.items else { return }
+                for photoObject in photoObjects {
+                    let photoURL = photoObject.sizes[3].url
+                    self?.filteredPhotos.append(photoURL)
+                }
+                DispatchQueue.main.async {
+                    self?.friendPhotos.reloadData()
+                }
+                
+                print("vot vot", self?.filteredPhotos)
+                print("Heey", self?.friend.photosLibrary)
+            case .failure:
+                print("Ошибка получения фото из хранилища")
+            }
+        }
+    }
+
 }
