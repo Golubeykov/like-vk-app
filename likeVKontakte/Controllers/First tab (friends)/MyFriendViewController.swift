@@ -149,7 +149,8 @@ extension MyFriendViewController: UICollectionViewDelegate {
         let logoView = UIView(frame: self.view.frame)
         logoView.tag = 100
         let imageView = UIImageView(frame: logoView.frame)
-        imageView.image = UIImage(named: filteredPhotos[indexPath.item])
+        let cell = collectionView.cellForItem(at: indexPath) as! FriendCollectionViewCell
+        imageView.image = cell.friendPhotosCell.image
         imageView.contentMode = .scaleAspectFit
         self.view.addSubview(logoView)
         logoView.addSubview(imageView)
