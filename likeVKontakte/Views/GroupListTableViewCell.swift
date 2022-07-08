@@ -16,6 +16,17 @@ class GroupListTableViewCell: UITableViewCell {
     func configure(group: Group) {
         if let image = UIImage(named: group.logoName.lowercased()) {
             self.groupLogo.image = image
+        } else if let groupPhotoInternetLoaded = UIImage(data: {
+            do { let data = try Data(contentsOf: URL(string: group.logoName)!)
+                return data
+            } catch {
+                print("нет такого url")
+                print(group.logoName)
+                return Data()
+            }
+        }()
+        ) {
+            self.groupLogo.image = groupPhotoInternetLoaded
         }
         self.groupName.text = group.name
         self.numberOfUsers.text = String(group.numberOfParticipants)
