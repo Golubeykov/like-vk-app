@@ -16,6 +16,7 @@ class VKAuthViewController: UIViewController {
     @IBOutlet weak var loadView3: UIView!
     
     var friendsJSON: [FriendJSON] = []
+    var groupsJSON: [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +80,8 @@ extension VKAuthViewController: WKNavigationDelegate {
          if let token = params["access_token"], let user_id = params["user_id"] {
              print(token)
              NetworkData.shared.addData(token: token, userID: user_id)
-             self.doNetworkRequest(token: token,user_id: user_id)
+             self.doGroupsRequest(token: token, user_id: user_id)
+             self.doFriendsRequest(token: token,user_id: user_id)
             //Костыль?
             //performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }
@@ -89,7 +91,7 @@ extension VKAuthViewController: WKNavigationDelegate {
 
 extension VKAuthViewController {
     //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
-    func doNetworkRequest(token: String, user_id: String) {
+    func doFriendsRequest(token: String, user_id: String) {
         let service = VKService(token: token, user_id: user_id)
         service.getFriends { [weak self] result in
             guard let self = self else { return }
@@ -106,7 +108,7 @@ extension VKAuthViewController {
                     self.performSegue(withIdentifier: "VKAuthSuccess", sender: self)
                 }
             case .failure:
-                print("Случилась ошибка")
+                print("Случилась ошибка в отгрузке друзей")
                 //Костыль?
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "VKAuthSuccess", sender: self)
@@ -114,6 +116,20 @@ extension VKAuthViewController {
             }
         }
      }
+    func doGroupsRequest(token: String, user_id: String) {
+        let service = VKService(token: token, user_id: user_id)
+        service.getGroupsAF { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                for group in groups {
+                    Group.allGroups.append(group)
+                }
+            case .failure:
+                print("Случилась ошибка в отгрузке групп")
+            }
+        }
+    }
 }
 // Анимация загрузки
 extension VKAuthViewController {

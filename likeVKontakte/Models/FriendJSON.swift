@@ -23,7 +23,7 @@ struct FriendJSON: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case name = "first_name"
-        case imageURL = "photo_100"
+        case imageURL = "photo_200"
     }
 }
 
