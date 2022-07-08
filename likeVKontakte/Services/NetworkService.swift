@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 // MARK: - Доступ к API VK
 class VKService {
@@ -138,6 +139,7 @@ class VKService {
             }
             do {
                 let groups = try JSONDecoder().decode(RootGroupJSON.self, from: data).response.items
+                self.saveGroupsInRealm(groups)
                 completion(.success(groups))
                 print("GROUPS COUNT", groups.count)
             } catch {
@@ -145,6 +147,19 @@ class VKService {
                 print(error)
                 completion(.failure(.decodeError))
             }
+        }
+    }
+    
+    func saveGroupsInRealm (_ groups: [Group]) {
+        do {
+            let realm = try Realm()
+            print("REALM PATH:", realm.configuration.fileURL)
+            realm.beginWrite()
+            realm.add(groups)
+            try realm.commitWrite()
+        } catch {
+            print("Ошибка сохранения данных в Realm")
+            print(error)
         }
     }
     

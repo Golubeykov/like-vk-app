@@ -48,6 +48,10 @@ class Group: Object, Decodable {
         self.logoName = try values.decode(String.self, forKey: .logoName)
         self.numberOfParticipants = try values.decode(Int.self, forKey: .numberOfParticipants)
     }
+    
+    override class func primaryKey() -> String? {
+        "name"
+    }
 }
 
 //struct Group: Decodable, Equatable {
