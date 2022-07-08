@@ -12,8 +12,8 @@ class AllGroupsViewController: UIViewController {
     @IBOutlet weak var allGroupsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var allGroups = Group.allGroups
-    var groupsFiltered = Group.allGroups
+    var allGroups: [Group] = AllGroupsStorage.shared.getAllGroups()
+    var groupsFiltered: [Group] = AllGroupsStorage.shared.getAllGroups()
 
     // просто сохраняем идшник
     let reuseIdGroupList = GroupListTableViewCell.reuseIdGroupListTableViewCell

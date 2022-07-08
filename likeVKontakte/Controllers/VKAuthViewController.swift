@@ -123,7 +123,7 @@ extension VKAuthViewController {
             switch result {
             case .success(let groups):
                 for group in groups {
-                    Group.allGroups.append(group)
+                    AllGroupsStorage.shared.addGroup(group: group)
                 }
             case .failure:
                 print("Случилась ошибка в отгрузке групп")

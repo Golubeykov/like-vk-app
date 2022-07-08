@@ -31,10 +31,10 @@ class MyFriendsStorage: NSObject {
     }
     
     private let hardCodeFriends: [Friend] = [
-        Friend(id: "", name: "Лёлик", imageName: "Lelik", photosLibrary: ["meow", "kus", "catLogo","fish"]),
-    Friend(id: "", name: "Миса", imageName: "Misa", photosLibrary: ["kus", "tsarap", "fish","Stepan"]),
-    Friend(id: "", name: "Степан", imageName: "Stepan", photosLibrary: ["test", "kus", "tsarap","meow"]),
-        Friend(id: "", name: "Матильда", imageName: "matilda", photosLibrary: ["test", "kus", "tsarap","meow"]),
-        Friend(id: "", name: "Рыжик", imageName: "Ryzik", photosLibrary: [])
+        Friend(id: "1", name: "Лёлик", imageName: "Lelik", photosLibrary: ["meow", "kus", "catLogo","fish"]),
+    Friend(id: "2", name: "Миса", imageName: "Misa", photosLibrary: ["kus", "tsarap", "fish","Stepan"]),
+    Friend(id: "3", name: "Степан", imageName: "Stepan", photosLibrary: ["test", "kus", "tsarap","meow"]),
+        Friend(id: "4", name: "Матильда", imageName: "matilda", photosLibrary: ["test", "kus", "tsarap","meow"]),
+        Friend(id: "5", name: "Рыжик", imageName: "Ryzik", photosLibrary: [])
     ]
 }
