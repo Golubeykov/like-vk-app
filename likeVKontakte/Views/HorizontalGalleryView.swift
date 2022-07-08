@@ -219,12 +219,12 @@ import UIKit
             return
         }
     }
+    
     func setImages(images: [UIImage]) {
         self.images = images
         if self.images.count > 0 {
             self.mainImageView.image = self.images.first
         }
         customPageView.numberOfPages = self.images.count
-        
     }
 }

@@ -35,6 +35,7 @@ class MyFriendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         friendName.text = friend.name
         
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {

@@ -77,6 +77,7 @@ extension VKAuthViewController: WKNavigationDelegate {
              }
 
          if let token = params["access_token"], let user_id = params["user_id"] {
+             print(token)
              self.doNetworkRequest(token: token,user_id: user_id)
             //Костыль?
             //performSegue(withIdentifier: "VKAuthSuccess", sender: self)

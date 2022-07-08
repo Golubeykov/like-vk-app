@@ -61,6 +61,31 @@ class VKService {
         }
         task.resume()
     }
+    
+    func getFriendsPhotos(for friend: Friend) {
+        
+        var urlConstructor = URLComponents()
+            urlConstructor.scheme = "https"
+            urlConstructor.host = "api.vk.com"
+            urlConstructor.path = "/method/photos.getAll"
+            urlConstructor.queryItems = [
+                //URLQueryItem(name: "lang", value: "en"),
+                URLQueryItem(name: "owner_id", value: friend.id),
+                URLQueryItem(name: "count", value: "5"),
+                URLQueryItem(name: "access_token", value: token),
+                URLQueryItem(name: "v", value: "5.131")
+            ]
+        guard let url = urlConstructor.url else { return }
+        
+                AF.request(url).responseJSON { (response) in
+        
+                    if let value = response.value {
+                        print(value)
+                    }
+                }
+        
+    }
+    
 //    // Alamofire
 //    func getFriendsAF() {
 //        var urlConstructor = URLComponents()
