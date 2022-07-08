@@ -146,15 +146,8 @@
 			children = (
 				3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */,
 				3A7D7EA628536AE8000A67E6 /* Main.storyboard */,
-				3A2CB819285F3EE40017EF54 /* FriendsListTableViewCell.swift */,
-				3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */,
-				3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */,
-				3AC5FF6C2865E18C00FB668F /* FriendCollectionViewCell.swift */,
-				3AC5FF6E286B1CE600FB668F /* LikeButtonView.swift */,
-				3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */,
-				3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */,
-				3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */,
-				3AC5FF78286DEC5100FB668F /* StarView.swift */,
+				3AF7CEAD287875F800FA8ABA /* First tab(friends) */,
+				3AF7CEAE2878760800FA8ABA /* Second tab (groups) */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +198,29 @@
 				3A2CB8212860AC5B0017EF54 /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3AF7CEAD287875F800FA8ABA /* First tab(friends) */ = {
+			isa = PBXGroup;
+			children = (
+				3A2CB819285F3EE40017EF54 /* FriendsListTableViewCell.swift */,
+				3AC5FF6C2865E18C00FB668F /* FriendCollectionViewCell.swift */,
+				3AC5FF6E286B1CE600FB668F /* LikeButtonView.swift */,
+				3AC5FF70286B1CFA00FB668F /* LikeButtonView.xib */,
+				3AC5FF74286D95D800FB668F /* HorizontalGalleryView.swift */,
+				3AC5FF76286D95E400FB668F /* HorizontalGalleryView.xib */,
+				3AC5FF78286DEC5100FB668F /* StarView.swift */,
+			);
+			path = "First tab(friends)";
+			sourceTree = "<group>";
+		};
+		3AF7CEAE2878760800FA8ABA /* Second tab (groups) */ = {
+			isa = PBXGroup;
+			children = (
+				3AC5FF602865B0AF00FB668F /* GroupListTableViewCell.xib */,
+				3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */,
+			);
+			path = "Second tab (groups)";
 			sourceTree = "<group>";
 		};
 		4079ECF346CB968A89654164 /* Pods */ = {
@@ -521,7 +537,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -550,7 +566,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

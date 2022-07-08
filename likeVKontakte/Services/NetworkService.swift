@@ -17,7 +17,7 @@ class VKService {
         self.token = token
         self.user_id = user_id
     }
-    // URL Session подгружаем json и парсим сразу
+    //MARK: - getFriends URL Session подгружаем json и парсим сразу
     func getFriends(completion: @escaping (Result<[FriendJSON], JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
@@ -61,7 +61,8 @@ class VKService {
         }
         task.resume()
     }
-    // Сохраняем json в FileStorage после загрузки
+    
+    //MARK: - getFriendPhotos Сохраняем json в FileStorage после загрузки
     func getFriendsPhotos(for friend: Friend, completion: @escaping (Result<URL, JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
@@ -110,7 +111,7 @@ class VKService {
         
     }
     
-    // Alamofire getGroups
+    //MARK: - Alamofire getGroups
     func getGroupsAF(completion: @escaping (Result<[Group], JSONError>) -> Void) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = "https"

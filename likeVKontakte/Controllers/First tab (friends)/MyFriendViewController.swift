@@ -207,9 +207,6 @@ extension MyFriendViewController {
                 DispatchQueue.main.async {
                     self?.friendPhotos.reloadData()
                 }
-                
-                print("vot vot", self?.filteredPhotos)
-                print("Heey", self?.friend.photosLibrary)
             case .failure:
                 print("Ошибка получения фото из хранилища")
             }
