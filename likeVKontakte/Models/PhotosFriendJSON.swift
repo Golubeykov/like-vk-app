@@ -26,3 +26,11 @@ struct Item: Decodable {
 struct Size: Decodable {
     let url: String
 }
+
+func parsePhotosJSON(friend: Friend) {
+    let token = NetworkData.shared.getToken()
+    let userId = NetworkData.shared.getLoggedUserId()
+    let networkService = VKService(token: token, user_id: userId)
+    networkService.getFriendsPhotos(for: friend)
+    
+}

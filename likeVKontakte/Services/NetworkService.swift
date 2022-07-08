@@ -17,8 +17,8 @@ class VKService {
         self.token = token
         self.user_id = user_id
     }
-    // URL Session
-    func getFriends(completion: @escaping (Result<[FriendJSON], FriendJSONError>) -> Void) {
+    // URL Session подгружаем json и парсим сразу
+    func getFriends(completion: @escaping (Result<[FriendJSON], JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
             urlConstructor.scheme = "https"
@@ -61,8 +61,8 @@ class VKService {
         }
         task.resume()
     }
-    
-    func getFriendsPhotos(for friend: Friend) {
+    // Сохраняем json в FileStorage после загрузки
+    func getFriendsPhotos(for friend: Friend, completion: @escaping (Result<URL, JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
             urlConstructor.scheme = "https"
@@ -77,12 +77,32 @@ class VKService {
             ]
         guard let url = urlConstructor.url else { return }
         
-                AF.request(url).responseJSON { (response) in
-        
-                    if let value = response.value {
-                        print(value)
-                    }
+        let session = URLSession(configuration: .default)
+        let downloadTask = session.downloadTask(with: url) { urlFile, response, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                completion(.failure(.serverError))
+                return
+            }
+            if urlFile != nil {
+                do {
+                    let path = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]+"/\(friend.name)PhotosData.json"
+                    let urlPath = URL(fileURLWithPath: path)
+                    try FileManager.default.copyItem(at: urlFile!, to: urlPath)
+                    completion(.success(urlPath))
+
+                } catch {
+                    print(error)
+                    completion(.failure(.savingToFileManagerError))
+                    return
                 }
+            } else {
+                completion(.failure(.noData))
+                print("Не пришли данные")
+                return
+            }
+        }
+        downloadTask.resume()
         
     }
     
@@ -112,9 +132,10 @@ class VKService {
 //    }
 //}
 
-enum FriendJSONError: Error {
+enum JSONError: Error {
     case decodeError
     case noData
     case serverError
+    case savingToFileManagerError
 }
 }
