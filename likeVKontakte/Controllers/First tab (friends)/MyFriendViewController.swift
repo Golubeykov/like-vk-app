@@ -121,7 +121,7 @@ extension MyFriendViewController: UICollectionViewDataSource {
         print("COUNT:", filteredPhotos.count)
         return filteredPhotos.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierFriendCell, for: indexPath) as! FriendCollectionViewCell
         if let friendPhotoLibraryItem = UIImage(named: filteredPhotos[indexPath.item]) {
@@ -137,8 +137,9 @@ extension MyFriendViewController: UICollectionViewDataSource {
         }()
         ){
             cell.friendPhotosCell.image = friendPhotosInternetLoaded
-        } else { cell.friendPhotosCell.image = UIImage(systemName: "multiply") }
+        } else { cell.friendPhotosCell.image = UIImage(named: "thinkingCat") }
         return cell
+            
     }
 }
 //Delegate
