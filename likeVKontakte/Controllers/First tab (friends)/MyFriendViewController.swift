@@ -36,6 +36,11 @@ class MyFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let token = NetworkData.shared.getToken()
+        let userID = NetworkData.shared.getLoggedUserId()
+        let vkService = VKService(token: token, user_id: userID)
+        vkService.getFriendsPhotos(for: friend)
+        
         friendName.text = friend.name
         
         if let friendAvatarLoaded = UIImage(named: friend.imageName) {

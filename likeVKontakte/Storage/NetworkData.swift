@@ -25,7 +25,7 @@ class NetworkData: NSObject {
         return token
     }
     
-    func get loggedUserId() -> String {
+    func getLoggedUserId() -> String {
         return loggedUserId
     }
 }
