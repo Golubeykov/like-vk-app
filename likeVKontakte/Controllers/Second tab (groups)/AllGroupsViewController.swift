@@ -14,7 +14,8 @@ class AllGroupsViewController: UIViewController {
     
     var allGroups: [Group] = AllGroupsStorage.shared.getAllGroups()
     var groupsFiltered: [Group] = AllGroupsStorage.shared.getAllGroups()
-
+    let refreshControl = UIRefreshControl()
+    
     // просто сохраняем идшник
     let reuseIdGroupList = GroupListTableViewCell.reuseIdGroupListTableViewCell
     
@@ -25,7 +26,26 @@ class AllGroupsViewController: UIViewController {
         searchBar.delegate = self
         //Регистрируем ячейку из xib-файла
         allGroupsTableView.register(UINib(nibName: reuseIdGroupList, bundle: nil), forCellReuseIdentifier: reuseIdGroupList)
+        refreshControl.attributedTitle = NSAttributedString(string: "Загрузка данных")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        allGroupsTableView.addSubview(refreshControl)
     }
+    @objc func refresh(_ sender: AnyObject) {
+        DispatchQueue.main.async {
+            let vkAuth = VKAuthViewController()
+            let token = NetworkData.shared.getToken()
+            let user_id = NetworkData.shared.getLoggedUserId()
+
+            self.doGroupsRequest(token: token, user_id: user_id)
+            
+            self.refreshControl.endRefreshing()
+            self.groupsFiltered = []
+            self.groupsFiltered = AllGroupsStorage.shared.getAllGroups()
+            self.allGroupsTableView.reloadData()
+        }
+    }
+
+    
 }
 //TableView Data source
 extension AllGroupsViewController: UITableViewDataSource {
@@ -65,6 +85,23 @@ extension AllGroupsViewController: UISearchBarDelegate {
             groupsFiltered = allGroups
         }
         allGroupsTableView.reloadData()
+    }
+}
+
+extension AllGroupsViewController {
+    func doGroupsRequest(token: String, user_id: String) {
+        let service = VKService(token: token, user_id: user_id)
+        service.getGroupsAF { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                for group in groups {
+                    AllGroupsStorage.shared.addGroup(group: group)
+                }
+            case .failure:
+                print("Случилась ошибка в отгрузке групп")
+            }
+        }
     }
 }
 

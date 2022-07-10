@@ -26,7 +26,7 @@ class AllGroupsStorage: NSObject {
     }
     
     func addGroup(group: Group) {
-        if !allGroups.contains(where: { $0 == group }) {
+        if !allGroups.contains(where: { $0.name == group.name }) {
         allGroups.append(group)
         }
     }

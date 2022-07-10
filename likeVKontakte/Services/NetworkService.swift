@@ -122,7 +122,7 @@ class VKService {
             URLQueryItem(name: "user_id", value: user_id),
             URLQueryItem(name: "extended", value: "1"),
             URLQueryItem(name: "fields", value: "members_count"),
-            URLQueryItem(name: "count", value: "5"),
+            URLQueryItem(name: "count", value: "7"),
             URLQueryItem(name: "access_token", value: token),
             URLQueryItem(name: "v", value: "5.131")
         ]
