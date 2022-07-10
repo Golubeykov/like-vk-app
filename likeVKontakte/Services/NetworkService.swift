@@ -151,6 +151,8 @@ class VKService {
     }
     
     func saveGroupsInRealm (_ groups: [Group]) {
+        // На бою так не делаем, чтобы не положить базу)) Это чисто для теста
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         do {
             let realm = try Realm()
             print("REALM PATH:", realm.configuration.fileURL)

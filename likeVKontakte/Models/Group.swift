@@ -29,7 +29,7 @@ class Group: Object, Decodable {
         case numberOfParticipants = "members_count"
     }
     
-    required init() {
+    required override init() {
         self.name = ""
         self.logoName = ""
         self.numberOfParticipants = 0
@@ -49,9 +49,9 @@ class Group: Object, Decodable {
         self.numberOfParticipants = try values.decode(Int.self, forKey: .numberOfParticipants)
     }
     
-    override class func primaryKey() -> String? {
-        "name"
-    }
+//    override class func primaryKey() -> String? {
+//        "name"
+//    }
 }
 
 //struct Group: Decodable, Equatable {
