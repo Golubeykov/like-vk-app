@@ -112,8 +112,8 @@ class VKService {
         
     }
     
-    //MARK: - Alamofire getGroups
-    func getGroupsAF(completion: @escaping (Result<[Group], JSONError>) -> Void) {
+    //MARK: - Alamofire getGroups (получаем данные из сети, кладем их в Realm, а читаем и отображем в приложениии из Realm)
+    func getGroupsAF(completion: @escaping () -> Void) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = "https"
         urlConstructor.host = "api.vk.com"
@@ -130,36 +130,32 @@ class VKService {
         
         AF.request(url).responseJSON { (response) in
             if let error = response.error {
-                completion(.failure(.serverError))
                 print(error)
             }
             guard let data = response.data else {
-                completion(.failure(.noData))
                 return
             }
             do {
                 let groups = try JSONDecoder().decode(RootGroupJSON.self, from: data).response.items
                 self.saveGroupsInRealm(groups)
-                completion(.success(groups))
+                completion()
             } catch {
                 print("Ошибка декодирования")
                 print(error)
-                completion(.failure(.decodeError))
             }
         }
     }
     
     func doGroupsRequest(token: String, user_id: String) {
-        self.getGroupsAF { [weak self] result in
-            guard self != nil else { return }
-            switch result {
-            case .success(let groups):
-                for group in groups {
-                    AllGroupsStorage.shared.addGroup(group: group)
-                }
-            case .failure:
-                print("Случилась ошибка в отгрузке групп")
+        do {
+            let realm = try Realm()
+            let groups = realm.objects(Group.self)
+            for group in groups {
+                AllGroupsStorage.shared.addGroup(group: group)
             }
+        } catch {
+            print("Ошибка выгрузки данных из Realm")
+            print(error)
         }
     }
     
