@@ -14,6 +14,7 @@ class MyFriendViewController: UIViewController {
     @IBOutlet weak var friendAvatarView: UIView!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     //Прокрутить аватарку друга
     @IBAction func spinFriend(_ sender: UIBarButtonItem) {
@@ -60,8 +61,10 @@ class MyFriendViewController: UIViewController {
         }()
         ){
             friendAvatar.image = friendAvatarInternetLoaded
+
         }  else {
             friendAvatar.image = UIImage(named: "Stepan")
+
         }
         
         //добавляем тень
@@ -116,7 +119,6 @@ class MyFriendViewController: UIViewController {
 
 extension MyFriendViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("COUNT:", filteredPhotos.count)
         return filteredPhotos.count
     }
 
@@ -136,6 +138,7 @@ extension MyFriendViewController: UICollectionViewDataSource {
         ){
             cell.friendPhotosCell.image = friendPhotosInternetLoaded
         } else { cell.friendPhotosCell.image = UIImage(named: "thinkingCat") }
+        activityIndicatorView.isHidden = true
         return cell
             
     }
