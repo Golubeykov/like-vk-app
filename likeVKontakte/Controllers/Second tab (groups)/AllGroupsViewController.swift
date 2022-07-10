@@ -36,7 +36,8 @@ class AllGroupsViewController: UIViewController {
             let token = NetworkData.shared.getToken()
             let user_id = NetworkData.shared.getLoggedUserId()
 
-            self.doGroupsRequest(token: token, user_id: user_id)
+            let VKService = VKService(token: token, user_id: user_id)
+            VKService.doGroupsRequest(token: token, user_id: user_id)
             
             self.refreshControl.endRefreshing()
             self.groupsFiltered = []
@@ -88,20 +89,5 @@ extension AllGroupsViewController: UISearchBarDelegate {
     }
 }
 
-extension AllGroupsViewController {
-    func doGroupsRequest(token: String, user_id: String) {
-        let service = VKService(token: token, user_id: user_id)
-        service.getGroupsAF { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let groups):
-                for group in groups {
-                    AllGroupsStorage.shared.addGroup(group: group)
-                }
-            case .failure:
-                print("Случилась ошибка в отгрузке групп")
-            }
-        }
-    }
-}
+
 

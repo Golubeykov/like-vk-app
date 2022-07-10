@@ -80,9 +80,12 @@ extension VKAuthViewController: WKNavigationDelegate {
          if let token = params["access_token"], let user_id = params["user_id"] {
              print(token)
              NetworkData.shared.addData(token: token, userID: user_id)
-             self.doGroupsRequest(token: token, user_id: user_id)
+             
+             //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
+             let VKService = VKService(token: token, user_id: user_id)
+             VKService.doGroupsRequest(token: token, user_id: user_id)
              self.doFriendsRequest(token: token,user_id: user_id)
-            //Костыль?
+            //Костыль? По-хорошему бы вынести doFriendRequest в NetworkService, но performSegue держит его здесь
             //performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }
         decisionHandler(.cancel)
@@ -116,20 +119,6 @@ extension VKAuthViewController {
             }
         }
      }
-    func doGroupsRequest(token: String, user_id: String) {
-        let service = VKService(token: token, user_id: user_id)
-        service.getGroupsAF { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let groups):
-                for group in groups {
-                    AllGroupsStorage.shared.addGroup(group: group)
-                }
-            case .failure:
-                print("Случилась ошибка в отгрузке групп")
-            }
-        }
-    }
 }
 // Анимация загрузки
 extension VKAuthViewController {

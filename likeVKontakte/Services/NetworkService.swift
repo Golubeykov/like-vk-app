@@ -149,6 +149,20 @@ class VKService {
         }
     }
     
+    func doGroupsRequest(token: String, user_id: String) {
+        self.getGroupsAF { [weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case .success(let groups):
+                for group in groups {
+                    AllGroupsStorage.shared.addGroup(group: group)
+                }
+            case .failure:
+                print("Случилась ошибка в отгрузке групп")
+            }
+        }
+    }
+    
     func saveGroupsInRealm (_ groups: [Group]) {
         // На бою так не делаем, чтобы не положить базу)) Это чисто для теста
         Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
