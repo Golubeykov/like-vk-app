@@ -30,6 +30,7 @@ class AllGroupsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         allGroupsTableView.addSubview(refreshControl)
     }
+    //Pull to refresh (данные подгружаются из интернета)
     @objc func refresh(_ sender: AnyObject) {
         DispatchQueue.main.async {
             let vkAuth = VKAuthViewController()

@@ -171,11 +171,12 @@ class VKService {
             let networkGroupsFiltered = realm.objects(Group.self).filter("name BEGINSWITH 'B'")
             print("Filtered groups in Realm:", networkGroupsFiltered.count)
             print("Realm file path:", realm.configuration.fileURL ?? "No Realm path")
-            if networkGroupsFiltered.count == 0 {
             realm.beginWrite()
+            let oldGroupsList = realm.objects(Group.self)
+            realm.delete(oldGroupsList)
             realm.add(groups)
             try realm.commitWrite()
-            }
+
         } catch {
             print(error)
             print("Ошибка сохранения данных в Realm")
