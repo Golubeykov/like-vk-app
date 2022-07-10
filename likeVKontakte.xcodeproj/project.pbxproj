@@ -19,6 +19,7 @@
 		3A7D7EA828536AE8000A67E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA628536AE8000A67E6 /* Main.storyboard */; };
 		3A7D7EAA28536AEA000A67E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EA928536AEA000A67E6 /* Assets.xcassets */; };
 		3A7D7EAD28536AEA000A67E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7EAB28536AEA000A67E6 /* LaunchScreen.storyboard */; };
+		3A895B15287AF70700E3D273 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A895B14287AF70700E3D273 /* Realm.swift */; };
 		3AB27ED42878097600EE7F1E /* PhotosFriendJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB27ED32878097600EE7F1E /* PhotosFriendJSON.swift */; };
 		3AB27ED628780C6400EE7F1E /* NetworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB27ED528780C6400EE7F1E /* NetworkData.swift */; };
 		3AC5FF612865B0AF00FB668F /* GroupListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		3A7D7EA928536AEA000A67E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A7D7EAC28536AEA000A67E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A7D7EAE28536AEA000A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A895B14287AF70700E3D273 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		3AB27ED32878097600EE7F1E /* PhotosFriendJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFriendJSON.swift; sourceTree = "<group>"; };
 		3AB27ED528780C6400EE7F1E /* NetworkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkData.swift; sourceTree = "<group>"; };
 		3AC5FF5F2865B0AF00FB668F /* GroupListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				3AD41A90287348E100BAC61E /* MyFriends.swift */,
 				3AB27ED528780C6400EE7F1E /* NetworkData.swift */,
 				3AF7CEAF28789B6500FA8ABA /* AllGroups.swift */,
+				3A895B14287AF70700E3D273 /* Realm.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				3AC5FF73286D911500FB668F /* HorizontalGalleryViewController.swift in Sources */,
 				3AD41A91287348E100BAC61E /* MyFriends.swift in Sources */,
 				3A2CB818285F3AC80017EF54 /* Friend.swift in Sources */,
+				3A895B15287AF70700E3D273 /* Realm.swift in Sources */,
 				3A2CB81A285F3EE40017EF54 /* FriendsListTableViewCell.swift in Sources */,
 				3AC5FF662865C32D00FB668F /* AllGroupsViewController.swift in Sources */,
 				3A1F785828536B690005CA9A /* LoginFormController.swift in Sources */,

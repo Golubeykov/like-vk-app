@@ -52,6 +52,8 @@ class Group: Object, Decodable {
 //    override class func primaryKey() -> String? {
 //        "name"
 //    }
+//    override static func indexedProperties() -> [String] { return ["name"]
+//    }
 }
 
 //struct Group: Decodable, Equatable {

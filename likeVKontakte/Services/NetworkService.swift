@@ -141,7 +141,6 @@ class VKService {
                 let groups = try JSONDecoder().decode(RootGroupJSON.self, from: data).response.items
                 self.saveGroupsInRealm(groups)
                 completion(.success(groups))
-                print("GROUPS COUNT", groups.count)
             } catch {
                 print("Ошибка декодирования")
                 print(error)
@@ -155,13 +154,17 @@ class VKService {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         do {
             let realm = try Realm()
-            print("REALM PATH:", realm.configuration.fileURL)
+            let networkGroupsFiltered = realm.objects(Group.self).filter("name BEGINSWITH 'B'")
+            print("Filtered groups in Realm:", networkGroupsFiltered.count)
+            print("Realm file path:", realm.configuration.fileURL ?? "No Realm path")
+            if networkGroupsFiltered.count == 0 {
             realm.beginWrite()
             realm.add(groups)
             try realm.commitWrite()
+            }
         } catch {
-            print("Ошибка сохранения данных в Realm")
             print(error)
+            print("Ошибка сохранения данных в Realm")
         }
     }
     
