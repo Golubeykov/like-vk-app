@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import SwiftUI
+import RealmSwift
 
 class VKAuthViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
@@ -39,7 +40,7 @@ class VKAuthViewController: UIViewController {
          urlComponents.host = "oauth.vk.com"
          urlComponents.path = "/authorize"
          urlComponents.queryItems = [
-             URLQueryItem(name: "client_id", value: "8213929"),
+             URLQueryItem(name: "client_id", value: "8216359"),
              URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
              URLQueryItem(name: "response_type", value: "token"),
              URLQueryItem(name: "scope", value: "262150"),
@@ -83,8 +84,9 @@ extension VKAuthViewController: WKNavigationDelegate {
              
              //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
              let VKService = VKService(token: token, user_id: user_id)
-             VKService.doGroupsRequest(token: token, user_id: user_id)
-             self.doFriendsRequest(token: token,user_id: user_id)
+             VKService.getGroupsAF {
+                 self.doFriendsRequest(token: token,user_id: user_id)
+             }
             //Костыль? По-хорошему бы вынести doFriendRequest в NetworkService, но performSegue держит его здесь
             //performSegue(withIdentifier: "VKAuthSuccess", sender: self)
          }

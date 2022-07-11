@@ -127,63 +127,54 @@ class VKService {
             URLQueryItem(name: "v", value: "5.131")
         ]
         guard let url = urlConstructor.url else { return }
-        
-        AF.request(url).responseJSON { (response) in
-            if let error = response.error {
-                print(error)
-            }
-            guard let data = response.data else {
-                return
-            }
-            do {
-                let groups = try JSONDecoder().decode(RootGroupJSON.self, from: data).response.items
-                self.saveGroupsInRealm(groups)
-                completion()
-            } catch {
-                print("Ошибка декодирования")
-                print(error)
-            }
-        }
+        var groups = [Group]()
+                AF.request(url).responseDecodable { (response: DataResponse<Group, AFError>) in
+                    if let error = response.error {
+                        print(error)
+                    }
+                    guard let data = response.data else {
+                        return
+                    }
+                    do {
+                        groups = try JSONDecoder().decode(RootGroupJSON.self, from: data).response.items
+                    } catch {
+                        print("Ошибка декодирования")
+                        print(error)
+                    }
+                    self.saveGroupsInRealm(groups, completion: completion)
+                }
     }
-    
-    func doGroupsRequest(token: String, user_id: String) {
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Group.self)
-            for group in groups {
-                AllGroupsStorage.shared.addGroup(group: group)
-            }
-        } catch {
-            print("Ошибка выгрузки данных из Realm")
-            print(error)
-        }
-    }
-    
-    func saveGroupsInRealm (_ groups: [Group]) {
-        // На бою так не делаем, чтобы не положить базу)) Это чисто для теста
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        do {
-            let realm = try Realm()
-            let networkGroupsFiltered = realm.objects(Group.self).filter("name BEGINSWITH 'B'")
-            print("Filtered groups in Realm:", networkGroupsFiltered.count)
-            print("Realm file path:", realm.configuration.fileURL ?? "No Realm path")
-            realm.beginWrite()
-            let oldGroupsList = realm.objects(Group.self)
-            realm.delete(oldGroupsList)
-            realm.add(groups)
-            try realm.commitWrite()
 
-        } catch {
-            print(error)
-            print("Ошибка сохранения данных в Realm")
+
+func saveGroupsInRealm (_ groups: [Group], completion: @escaping ()->Void) {
+    // На бою так не делаем, чтобы не положить базу)) Это чисто для теста
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+    do {
+        let realm = try Realm()
+        realm.autorefresh = true
+        //let networkGroupsFiltered = realm.objects(Group.self).filter("name BEGINSWITH 'B'")
+        //print("Filtered groups in Realm:", networkGroupsFiltered.count)
+        print("Realm file path:", realm.configuration.fileURL ?? "No Realm path")
+        let oldGroupsList = realm.objects(Group.self)
+        realm.beginWrite()
+        //MARK: Дает краш, если удалять. Пока реализую чисто апдейтом
+        realm.delete(Array(oldGroupsList))
+        realm.add(groups)
+        try realm.commitWrite()
+        DispatchQueue.main.async {
+            print("Data saved in Realm")
+            completion()
         }
+    } catch {
+        print(error)
+        print("Ошибка сохранения данных в Realm")
     }
-    
-    
-    enum JSONError: Error {
-        case decodeError
-        case noData
-        case serverError
-        case savingToFileManagerError
-    }
+}
+
+enum JSONError: Error {
+    case decodeError
+    case noData
+    case serverError
+    case savingToFileManagerError
+}
 }

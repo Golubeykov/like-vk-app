@@ -21,6 +21,11 @@ class AllGroupsStorage: NSObject {
     
     private var allGroups = [Group]()
     
+    func removeGroup(group: Group) {
+        guard let indexToRemove = allGroups.firstIndex(of: group) else { return }
+        allGroups.remove(at: indexToRemove)
+    }
+    
     func getAllGroups() -> [Group] {
         return allGroups
     }

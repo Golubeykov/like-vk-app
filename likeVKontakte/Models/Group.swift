@@ -49,11 +49,11 @@ class Group: Object, Decodable {
         self.numberOfParticipants = try values.decode(Int.self, forKey: .numberOfParticipants)
     }
     
-    override class func primaryKey() -> String? {
-        "name"
-    }
-    override static func indexedProperties() -> [String] { return ["name"]
-    }
+//    override class func primaryKey() -> String? {
+//        "name"
+//    }
+//    override static func indexedProperties() -> [String] { return ["name"]
+//    }
 }
 
 //struct Group: Decodable, Equatable {
