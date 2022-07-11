@@ -13,8 +13,10 @@ class MyGroupsStorage: NSObject {
     
     private override init() {
         super.init()
+        for group in hardCodeGroups {
+            myGroups.append(group)
+        }
     }
-    
     private var myGroups = [Group]()
     
     func getMyGroups() -> [Group] {
@@ -22,10 +24,15 @@ class MyGroupsStorage: NSObject {
     }
     
     func addGroup(group: Group) {
-        if !myGroups.contains(where: { $0 == group }) {
+        if !myGroups.contains(where: { $0.name == group.name }) {
         myGroups.append(group)
         }
     }
-    
+    private var hardCodeGroups: [Group] = [
+        Group(name:  "Кусь", logoName: "Kus", numberOfParticipants: 41411),
+        Group(name: "Царапки", logoName: "Tsarap", numberOfParticipants: 1630),
+        Group(name: "Милашки", logoName: "Meow", numberOfParticipants: 73882),
+        Group(name: "Таскаем рыбу", logoName: "Fish", numberOfParticipants: 4321)
+        ]
     
 }

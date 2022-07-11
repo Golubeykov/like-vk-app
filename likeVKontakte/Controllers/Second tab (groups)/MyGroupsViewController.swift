@@ -10,8 +10,11 @@ import UIKit
 class MyGroupsViewController: UIViewController {
 
     @IBOutlet weak var myGroupsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     var myGroups = MyGroupsStorage.shared.getMyGroups()
+    var myGroupsForSearchBar = MyGroupsStorage.shared.getMyGroups()
+    
     // просто сохраняем идшник
     let reuseIdGroupList = GroupListTableViewCell.reuseIdGroupListTableViewCell
     let fromMyToAllGroups = "fromMyToAllGroups"
@@ -20,6 +23,7 @@ class MyGroupsViewController: UIViewController {
         super.viewDidLoad()
         myGroupsTableView.dataSource = self
         myGroupsTableView.delegate = self
+        searchBar.delegate = self
         //Регистрируем ячейку из xib-файла
         myGroupsTableView.register(UINib(nibName: reuseIdGroupList, bundle: nil), forCellReuseIdentifier: reuseIdGroupList)
     }
@@ -80,4 +84,19 @@ extension MyGroupsViewController: UITableViewDelegate {
     }
     }
 }
+
+//Search bar
+extension MyGroupsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        myGroupsForSearchBar = MyGroupsStorage.shared.getMyGroups()
+        myGroups = myGroupsForSearchBar
+        if !searchText.isEmpty {
+            myGroups = myGroups.filter ({ $0.name.lowercased().contains(searchText.lowercased()) })
+        } else {
+            myGroups = myGroupsForSearchBar
+        }
+        myGroupsTableView.reloadData()
+    }
+}
+
 

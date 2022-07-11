@@ -1,46 +1,40 @@
+////
+////  AllGroups.swift
+////  likeVKontakte
+////
+////  Created by Антон Голубейков on 08.07.2022.
+////
 //
-//  AllGroups.swift
-//  likeVKontakte
+//import Foundation
+//import RealmSwift
 //
-//  Created by Антон Голубейков on 08.07.2022.
+////Синглтон списка всех групп
+//class AllGroupsStorage: NSObject {
+//    static let shared = AllGroupsStorage()
+//    
+//    private override init() {
+//        super.init()
+//        for group in hardCodeGroups {
+//            allGroups.append(group)
+//        }
+//    }
+//    
+//    private var allGroups = [Group]()
+//    
+//    func removeGroup(group: Group) {
+//        guard let indexToRemove = allGroups.firstIndex(of: group) else { return }
+//        allGroups.remove(at: indexToRemove)
+//    }
+//    
+//    func getAllGroups() -> [Group] {
+//        return allGroups
+//    }
+//    
+//    func addGroup(group: Group) {
+//        if !allGroups.contains(where: { $0.name == group.name }) {
+//        allGroups.append(group)
+//        }
+//    }
+//}
 //
-
-import Foundation
-import RealmSwift
-
-//Синглтон списка всех групп
-class AllGroupsStorage: NSObject {
-    static let shared = AllGroupsStorage()
-    
-    private override init() {
-        super.init()
-        for group in hardCodeGroups {
-            allGroups.append(group)
-        }
-    }
-    
-    private var allGroups = [Group]()
-    
-    func removeGroup(group: Group) {
-        guard let indexToRemove = allGroups.firstIndex(of: group) else { return }
-        allGroups.remove(at: indexToRemove)
-    }
-    
-    func getAllGroups() -> [Group] {
-        return allGroups
-    }
-    
-    func addGroup(group: Group) {
-        if !allGroups.contains(where: { $0.name == group.name }) {
-        allGroups.append(group)
-        }
-    }
-    private var hardCodeGroups: [Group] = [
-        Group(name:  "Кусь", logoName: "Kus", numberOfParticipants: 41411),
-        Group(name: "Царапки", logoName: "Tsarap", numberOfParticipants: 1630),
-        Group(name: "Милашки", logoName: "Meow", numberOfParticipants: 73882),
-        Group(name: "Таскаем рыбу", logoName: "Fish", numberOfParticipants: 4321)
-        ]
-}
-
-
+//

@@ -235,9 +235,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PaB-CK-K0e">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="146" width="390" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" text="" id="y6I-OC-qB5">
+                                <rect key="frame" x="0.0" y="102" width="390" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L9y-dC-6nE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -245,7 +250,7 @@
                             <constraint firstItem="PaB-CK-K0e" firstAttribute="leading" secondItem="L9y-dC-6nE" secondAttribute="leading" id="1RV-mk-X16"/>
                             <constraint firstItem="L9y-dC-6nE" firstAttribute="bottom" secondItem="PaB-CK-K0e" secondAttribute="bottom" id="D4E-as-Q2g"/>
                             <constraint firstItem="L9y-dC-6nE" firstAttribute="trailing" secondItem="PaB-CK-K0e" secondAttribute="trailing" id="IYF-pN-J5x"/>
-                            <constraint firstItem="PaB-CK-K0e" firstAttribute="top" secondItem="L9y-dC-6nE" secondAttribute="top" id="dCU-qO-dQo"/>
+                            <constraint firstItem="PaB-CK-K0e" firstAttribute="top" secondItem="y6I-OC-qB5" secondAttribute="bottom" id="dCU-qO-dQo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мои группы" id="HSc-SH-wR3">
@@ -263,6 +268,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="myGroupsTableView" destination="PaB-CK-K0e" id="XSy-FV-x7g"/>
+                        <outlet property="searchBar" destination="y6I-OC-qB5" id="5su-T2-DPv"/>
                         <segue destination="z0p-Xi-Fol" kind="show" identifier="fromMyToAllGroups" id="P3X-sX-anO"/>
                     </connections>
                 </viewController>

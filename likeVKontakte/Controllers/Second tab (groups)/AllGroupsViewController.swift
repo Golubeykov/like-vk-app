@@ -123,7 +123,7 @@ extension AllGroupsViewController {
             switch changes {
             case .initial:
                 tableView.reloadData()
-            case .update(_, let deletions, let insertions, let modifications):
+            case .update(_, _, _, _):
                 self?.groupsCount = groupsFromRealm.count
                 //tableView.beginUpdates()
                 tableView.reloadData()
