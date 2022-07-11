@@ -12,6 +12,7 @@ class AllGroupsViewController: UIViewController {
     
     @IBOutlet weak var allGroupsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     //var allGroups: [Group] = AllGroupsStorage.shared.getAllGroups()
     //var groupsFiltered: [Group] = AllGroupsStorage.shared.getAllGroups()
@@ -31,6 +32,7 @@ class AllGroupsViewController: UIViewController {
         allGroupsTableView.dataSource = self
         allGroupsTableView.delegate = self
         searchBar.delegate = self
+        self.view.bringSubviewToFront(searchBar)
         
         //Регистрируем ячейку из xib-файла
         allGroupsTableView.register(UINib(nibName: reuseIdGroupList, bundle: nil), forCellReuseIdentifier: reuseIdGroupList)
@@ -75,12 +77,12 @@ extension AllGroupsViewController: UITableViewDataSource {
         guard let group = groupsFromRealm?[save: indexPath.row] else { return UITableViewCell() }
         if indexPath.row < groupsCount! {
             cell.configure(group: group)
+            activityIndicatorView.isHidden = true
             return cell
         } else {
+            activityIndicatorView.isHidden = true
             return UITableViewCell()
         }
-//        cell.configure(group: group)
-//        return cell
     }
 }
 //TableView Delegate
@@ -96,19 +98,8 @@ extension AllGroupsViewController: UITableViewDelegate {
     }
 }
 
-//Search bar
+//MARK: нужен отдельный search bar под realm (библиотека)?
 extension AllGroupsViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        let groupsFromRealmTemp = groupsFromRealm
-//        groupsFromRealm = allGroups
-//        if !searchText.isEmpty {
-//            //groupsFromRealm = groupsFromRealm?.filter ({ $0.name.lowercased().contains(searchText.lowercased()) })
-//            //groupsFromRealm = groupsFromRealm?.filter("name == '%@'",searchText)
-//        } else {
-//            groupsFromRealm = groupsFromRealmTemp
-//        }
-//        allGroupsTableView.reloadData()
-//    }
 }
 
 extension AllGroupsViewController {
