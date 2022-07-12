@@ -12,12 +12,27 @@ import RealmSwift
 
 class VKAuthViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    
+    // Переменные для анимации
     @IBOutlet weak var loadView1: UIView!
     @IBOutlet weak var loadView2: UIView!
     @IBOutlet weak var loadView3: UIView!
+    private let stackView: UIStackView = {
+        $0.distribution = .fill
+        $0.axis = .horizontal
+        $0.alignment = .center
+        $0.spacing = 10
+        return $0
+    }(UIStackView())
+    private let circleA = UIView()
+    private let circleB = UIView()
+    private let circleC = UIView()
+    private lazy var circles = [circleA, circleB, circleC]
+    
     
     var friendsJSON: [FriendJSON] = []
     var groupsJSON: [Group] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +42,22 @@ class VKAuthViewController: UIViewController {
         if let request = vkAuthRequest() {
             webView.load(request)
         }
+        
+        view.backgroundColor = .white
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        circles.forEach {
+            $0.layer.cornerRadius = 20/2
+            $0.layer.masksToBounds = true
+            $0.backgroundColor = .systemBlue
+            stackView.addArrangedSubview($0)
+            $0.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            $0.heightAnchor.constraint(equalTo: $0.widthAnchor).isActive = true
+        }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
-    }
     //MARK: - Аутентификация (шаг 1)
     func vkAuthRequest() -> URLRequest? {
          var urlComponents = URLComponents()
@@ -66,7 +91,8 @@ extension VKAuthViewController: WKNavigationDelegate {
              decisionHandler(.allow)
              return
          }
-        self.loadAnimation()
+        //self.loadAnimation()
+        self.animate()
          let params = fragment
              .components(separatedBy: "&")
              .map({ $0.components(separatedBy: "=") })
@@ -122,7 +148,7 @@ extension VKAuthViewController {
         }
      }
 }
-// Анимация загрузки
+// Анимация загрузки (вариант 1 - потухающие квадратики)
 extension VKAuthViewController {
     func loadAnimation() {
         self.loadView1.backgroundColor = .blue
@@ -137,5 +163,31 @@ extension VKAuthViewController {
         UIView.animate(withDuration: 0.9, delay: 0.6, options: [.autoreverse], animations: {
             self.loadView3.alpha = 0
         })
+    }
+}
+
+extension VKAuthViewController {
+
+// Анимация (вариант 2 - с прыгающими шарами)
+    func animate() {
+        let jumpDuration: Double = 0.30
+        let delayDuration: Double = 1.25
+        let totalDuration: Double = delayDuration + jumpDuration*2
+
+        let jumpRelativeDuration: Double = jumpDuration / totalDuration
+        let jumpRelativeTime: Double = delayDuration / totalDuration
+        let fallRelativeTime: Double = (delayDuration + jumpDuration) / totalDuration
+
+        for (index, circle) in circles.enumerated() {
+            let delay = jumpDuration*2 * TimeInterval(index) / TimeInterval(circles.count)
+            UIView.animateKeyframes(withDuration: totalDuration, delay: delay, options: [.repeat], animations: {
+                UIView.addKeyframe(withRelativeStartTime: jumpRelativeTime, relativeDuration: jumpRelativeDuration) {
+                    circle.frame.origin.y -= 30
+                }
+                UIView.addKeyframe(withRelativeStartTime: fallRelativeTime, relativeDuration: jumpRelativeDuration) {
+                    circle.frame.origin.y += 30
+                }
+            })
+        }
     }
 }
