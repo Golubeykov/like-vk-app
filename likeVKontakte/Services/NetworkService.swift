@@ -18,15 +18,25 @@ class VKService {
         self.token = token
         self.user_id = user_id
     }
+    
+    //Общая часть сетевых запросов
+    private let scheme = "https"
+    private let host = "api.vk.com"
+    enum vkMethods: String {
+        case getFriends = "/method/friends.get"
+        case getPhotosByUser = "/method/photos.getAll"
+        case getGroups = "/method/groups.get"
+    }
+    let session = URLSession(configuration: .default)
+    
     //MARK: - getFriends URL Session подгружаем json и парсим сразу
     func getFriends(completion: @escaping (Result<[FriendJSON], JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
-        urlConstructor.scheme = "https"
-        urlConstructor.host = "api.vk.com"
-        urlConstructor.path = "/method/friends.get"
+        urlConstructor.scheme = scheme
+        urlConstructor.host = host
+        urlConstructor.path = vkMethods.getFriends.rawValue
         urlConstructor.queryItems = [
-            //URLQueryItem(name: "lang", value: "en"),
             URLQueryItem(name: "user_id", value: user_id),
             URLQueryItem(name: "order_id", value: "name"),
             URLQueryItem(name: "count", value: "5"),
@@ -37,7 +47,7 @@ class VKService {
         ]
         guard let url = urlConstructor.url else { return }
         
-        let session = URLSession.shared
+        let session = session
         
         let task = session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
@@ -67,11 +77,10 @@ class VKService {
     func getFriendsPhotos(for friend: Friend, completion: @escaping (Result<URL, JSONError>) -> Void) {
         
         var urlConstructor = URLComponents()
-        urlConstructor.scheme = "https"
-        urlConstructor.host = "api.vk.com"
-        urlConstructor.path = "/method/photos.getAll"
+        urlConstructor.scheme = scheme
+        urlConstructor.host = host
+        urlConstructor.path = vkMethods.getPhotosByUser.rawValue
         urlConstructor.queryItems = [
-            //URLQueryItem(name: "lang", value: "en"),
             URLQueryItem(name: "owner_id", value: friend.id),
             URLQueryItem(name: "count", value: "5"),
             URLQueryItem(name: "access_token", value: token),
@@ -79,7 +88,7 @@ class VKService {
         ]
         guard let url = urlConstructor.url else { return }
         
-        let session = URLSession(configuration: .default)
+        let session = session
         let downloadTask = session.downloadTask(with: url) { urlFile, response, error in
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -115,9 +124,9 @@ class VKService {
     //MARK: - Alamofire getGroups (получаем данные из сети, кладем их в Realm, а читаем и отображем в приложениии из Realm)
     func getGroupsAF(completion: @escaping () -> Void) {
         var urlConstructor = URLComponents()
-        urlConstructor.scheme = "https"
-        urlConstructor.host = "api.vk.com"
-        urlConstructor.path = "/method/groups.get"
+        urlConstructor.scheme = scheme
+        urlConstructor.host = host
+        urlConstructor.path = vkMethods.getGroups.rawValue
         urlConstructor.queryItems = [
             URLQueryItem(name: "user_id", value: user_id),
             URLQueryItem(name: "extended", value: "1"),
@@ -152,6 +161,7 @@ func saveGroupsInRealm (_ groups: [Group], completion: @escaping ()->Void) {
     do {
         let realm = try Realm()
         realm.autorefresh = true
+        //Можно фильтровать ответы из базы
         //let networkGroupsFiltered = realm.objects(Group.self).filter("name BEGINSWITH 'B'")
         //print("Filtered groups in Realm:", networkGroupsFiltered.count)
         print("Realm file path:", realm.configuration.fileURL ?? "No Realm path")
