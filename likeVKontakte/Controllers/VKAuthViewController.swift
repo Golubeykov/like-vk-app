@@ -15,7 +15,7 @@ class VKAuthViewController: UIViewController {
     
     // Константы для аутентификации vk
     private let appId = "8216359"
-    private let scope = "262150" // права доступа
+    private let scope = "270342" // права доступа
     private let version = "5.131"
     
     // Переменные для анимации
