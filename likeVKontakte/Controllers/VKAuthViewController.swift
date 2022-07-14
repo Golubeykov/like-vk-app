@@ -13,6 +13,11 @@ import RealmSwift
 class VKAuthViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     
+    // Константы для аутентификации vk
+    private let appId = "8216359"
+    private let scope = "262150" // права доступа
+    private let version = "5.131"
+    
     // Переменные для анимации
     @IBOutlet weak var loadView1: UIView!
     @IBOutlet weak var loadView2: UIView!
@@ -65,11 +70,11 @@ class VKAuthViewController: UIViewController {
          urlComponents.host = "oauth.vk.com"
          urlComponents.path = "/authorize"
          urlComponents.queryItems = [
-             URLQueryItem(name: "client_id", value: "8216359"),
+             URLQueryItem(name: "client_id", value: appId),
              URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
              URLQueryItem(name: "response_type", value: "token"),
-             URLQueryItem(name: "scope", value: "262150"),
-             URLQueryItem(name: "v", value: "5.131")
+             URLQueryItem(name: "scope", value: scope),
+             URLQueryItem(name: "v", value: version)
          ]
 
          if let url = urlComponents.url {

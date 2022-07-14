@@ -13,9 +13,7 @@ class AllGroupsViewController: UIViewController {
     @IBOutlet weak var allGroupsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    
-    //var allGroups: [Group] = AllGroupsStorage.shared.getAllGroups()
-    //var groupsFiltered: [Group] = AllGroupsStorage.shared.getAllGroups()
+
     let refreshControl = UIRefreshControl()
     
     //Токен для нотификаций Realm

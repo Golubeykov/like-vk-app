@@ -45,6 +45,7 @@ import UIKit
     }
     
     func setup() {
+        self.counter = Int.random(in: 0...9)
         self.likeButtonView = loadLikeButtonFromXIB()
         self.likeButtonView.frame = self.bounds
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
