@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsPost {
+struct NewsPost: Equatable {
     var titlePhoto: String
     var titleName: String
     
