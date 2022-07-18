@@ -12,17 +12,6 @@ class PostAuthorCell: UITableViewCell {
     @IBOutlet weak var titlePhoto: UIImageView!
     @IBOutlet weak var titleName: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func configureCell(post: NewsPost) {
         titlePhoto.image = UIImage(named: post.titlePhoto)
         titleName.text = post.titleName
