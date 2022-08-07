@@ -117,7 +117,7 @@ extension VKAuthViewController: WKNavigationDelegate {
              //MARK: - вызовы сервисов (get friends, groups) (шаг 3)
              let VKService = VKService(token: token, user_id: user_id)
              VKService.getGroupsAF {
-                 self.doNewsfeedRequest(token: token, user_id: user_id)
+                 parseNewsfeed(token: token, user_id: user_id)
                  self.doFriendsRequest(token: token,user_id: user_id)
              }
              
@@ -200,17 +200,18 @@ extension VKAuthViewController {
     }
 }
 // Проверка работы загрузки групп
-extension VKAuthViewController {
-    func doNewsfeedRequest(token: String, user_id: String) {
-        let service = VKService(token: token, user_id: user_id)
-        service.getNewsPosts { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(_):
-                print("Успешно загруженные новости")
-            case .failure:
-                print("Случилась ошибка в отгрузке новостей")
-            }
-        }
-    }
-}
+//extension VKAuthViewController {
+//    func doNewsfeedRequest(token: String, user_id: String) {
+//        let service = VKService(token: token, user_id: user_id)
+//        service.getNewsPosts { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success((let items, let groups, let profiles)):
+//                print("TEEESTTTT", items[0].text)
+//                print("Успешно загруженные новости")
+//            case .failure:
+//                print("Случилась ошибка в отгрузке новостей")
+//            }
+//        }
+//    }
+//}

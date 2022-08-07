@@ -183,7 +183,7 @@ class VKService {
     }
     
     //MARK: - Загрузка ленты новостей
-    func getNewsPosts(completion: @escaping (Result<NewsPostResponse, JSONError>) -> Void) {
+    func getNewsPosts(completion: @escaping (Result<([NewsPostItem],[NewsPostGroup],[NewsPostProfile]), JSONError>) -> Void) {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = scheme
         urlConstructor.host = host
@@ -210,9 +210,15 @@ class VKService {
                 return
             }
             do {
-                let newsPostsRawJSON = try JSONDecoder().decode(NewsPostRoot.self, from: data).response
-                print("NEWS JSON: ", newsPostsRawJSON.items[1].text)
-                completion(.success(newsPostsRawJSON))
+                let parseJSONDispatchGroup = DispatchGroup()
+                parseJSONDispatchGroup.enter()
+                let items = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.items
+                let groups = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.groups
+                let profiles = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.profiles
+                parseJSONDispatchGroup.leave()
+                parseJSONDispatchGroup.notify(queue: .main) {
+                    completion(.success((items, groups, profiles)))
+                }
             } catch {
                 print("Ошибка декодирования новостей")
                 print(error)

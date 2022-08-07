@@ -9,7 +9,8 @@ import UIKit
 
 class NewsViewController: UIViewController {
     
-    let testNews = NewsPost.testPosts
+    //let testNews = NewsPost.testPosts
+    var testNews = MyNewsPosts.shared.getMyNewsPosts()
     
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -18,11 +19,28 @@ class NewsViewController: UIViewController {
     let reuseIdPostPhotoCell = "PostPhotoCell"
     let reuseIdPostLikesCell = "PostLikesCell"
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        //Pull to refresh control
+        refreshControl.attributedTitle = NSAttributedString(string: "Загрузка данных")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        newsTableView.addSubview(refreshControl)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        newsTableView.reloadData()
+        testNews = MyNewsPosts.shared.getMyNewsPosts()
+        print(testNews.count)
+    }
+    //Pull to refresh (обновить данные в таблице)
+    @objc func refresh(_ sender: AnyObject) {
+        self.newsTableView.reloadData()
+        self.refreshControl.endRefreshing()
+}
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
