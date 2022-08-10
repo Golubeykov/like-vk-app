@@ -46,6 +46,7 @@
 		3AD41A91287348E100BAC61E /* MyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD41A90287348E100BAC61E /* MyFriends.swift */; };
 		3AD41A972877016D00BAC61E /* FriendJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD41A962877016D00BAC61E /* FriendJSON.swift */; };
 		3AE4172128A02DD5009E1AFE /* ParseNewsfeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4172028A02DD5009E1AFE /* ParseNewsfeedService.swift */; };
+		3AE4175628A3FC2C009E1AFE /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4175528A3FC2C009E1AFE /* SeparatorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		3AD41A90287348E100BAC61E /* MyFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriends.swift; sourceTree = "<group>"; };
 		3AD41A962877016D00BAC61E /* FriendJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendJSON.swift; sourceTree = "<group>"; };
 		3AE4172028A02DD5009E1AFE /* ParseNewsfeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseNewsfeedService.swift; sourceTree = "<group>"; };
+		3AE4175528A3FC2C009E1AFE /* SeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
 		C8AE9E0B43A61B7F6AF8E041 /* Pods_likeVKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_likeVKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				3A7CC46E2880832900ED5C6C /* PostTextCell.swift */,
 				3A7CC4702880834100ED5C6C /* PostPhotoCell.swift */,
 				3A7CC4722880855A00ED5C6C /* PostLikesCell.swift */,
+				3AE4175528A3FC2C009E1AFE /* SeparatorCell.swift */,
 			);
 			path = "Third tab (news)";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				3AE4172128A02DD5009E1AFE /* ParseNewsfeedService.swift in Sources */,
 				3A7D7EA328536AE8000A67E6 /* SceneDelegate.swift in Sources */,
 				3AC5FF7B287300B000FB668F /* VKAuthViewController.swift in Sources */,
+				3AE4175628A3FC2C009E1AFE /* SeparatorCell.swift in Sources */,
 				3A7CC46B288020A000ED5C6C /* NewsViewController.swift in Sources */,
 				3AC5FF6B2865DCD800FB668F /* MyFriendViewController.swift in Sources */,
 				3A2CB8222860AC5B0017EF54 /* NetworkService.swift in Sources */,

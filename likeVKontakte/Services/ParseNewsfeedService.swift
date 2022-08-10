@@ -34,7 +34,7 @@ private func createNewsPost(items: [NewsPostItem], groups: [NewsPostGroup], prof
                 }
             }
         }
-        if let attachment = item.attachments?[0].photo?.sizes[1].url {
+        if let attachment = item.attachments?[0].photo?.sizes[3].url {
             bodyPhoto = attachment
         }
         numberOfLikes = item.likes.count

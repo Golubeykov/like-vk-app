@@ -210,15 +210,12 @@ class VKService {
                 return
             }
             do {
-                let parseJSONDispatchGroup = DispatchGroup()
-                parseJSONDispatchGroup.enter()
-                let items = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.items
-                let groups = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.groups
-                let profiles = try JSONDecoder().decode(NewsPostRoot.self, from: data).response.profiles
-                parseJSONDispatchGroup.leave()
-                parseJSONDispatchGroup.notify(queue: .main) {
-                    completion(.success((items, groups, profiles)))
-                }
+
+                let response = try JSONDecoder().decode(NewsPostRoot.self, from: data).response
+                let items = response.items
+                let groups = response.groups
+                let profiles = response.profiles
+                completion(.success((items, groups, profiles)))
             } catch {
                 print("Ошибка декодирования новостей")
                 print(error)
