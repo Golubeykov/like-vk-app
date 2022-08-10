@@ -24,7 +24,7 @@ class MyNewsPosts {
     }
     
     func addNewsPost(newsPost: NewsPost) {
-        if !myNewsPosts.contains(where: { $0 == newsPost }) {
+        if !myNewsPosts.contains(where: { $0.bodyText == newsPost.bodyText }) {
         myNewsPosts.append(newsPost)
         }
     }
